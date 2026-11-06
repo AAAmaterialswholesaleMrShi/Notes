@@ -1,0 +1,506 @@
+file,package,declaring_type,anonymous,kind,name,return_type,parameters,line
+src/net/micode/notes/data/Contact.java,net.micode.notes.data,net.micode.notes.data.Contact,no,method,getContact,String,"Context context, String phoneNumber",39
+src/net/micode/notes/data/NotesDatabaseHelper.java,net.micode.notes.data,net.micode.notes.data.NotesDatabaseHelper,no,constructor,NotesDatabaseHelper,,Context context,209
+src/net/micode/notes/data/NotesDatabaseHelper.java,net.micode.notes.data,net.micode.notes.data.NotesDatabaseHelper,no,method,createNoteTable,void,SQLiteDatabase db,213
+src/net/micode/notes/data/NotesDatabaseHelper.java,net.micode.notes.data,net.micode.notes.data.NotesDatabaseHelper,no,method,reCreateNoteTableTriggers,void,SQLiteDatabase db,220
+src/net/micode/notes/data/NotesDatabaseHelper.java,net.micode.notes.data,net.micode.notes.data.NotesDatabaseHelper,no,method,createSystemFolder,void,SQLiteDatabase db,238
+src/net/micode/notes/data/NotesDatabaseHelper.java,net.micode.notes.data,net.micode.notes.data.NotesDatabaseHelper,no,method,createDataTable,void,SQLiteDatabase db,273
+src/net/micode/notes/data/NotesDatabaseHelper.java,net.micode.notes.data,net.micode.notes.data.NotesDatabaseHelper,no,method,reCreateDataTableTriggers,void,SQLiteDatabase db,280
+src/net/micode/notes/data/NotesDatabaseHelper.java,net.micode.notes.data,net.micode.notes.data.NotesDatabaseHelper,no,method,getInstance,NotesDatabaseHelper,Context context,290
+src/net/micode/notes/data/NotesDatabaseHelper.java,net.micode.notes.data,net.micode.notes.data.NotesDatabaseHelper,no,method,onCreate,void,SQLiteDatabase db,298
+src/net/micode/notes/data/NotesDatabaseHelper.java,net.micode.notes.data,net.micode.notes.data.NotesDatabaseHelper,no,method,onUpgrade,void,"SQLiteDatabase db, int oldVersion, int newVersion",304
+src/net/micode/notes/data/NotesDatabaseHelper.java,net.micode.notes.data,net.micode.notes.data.NotesDatabaseHelper,no,method,upgradeToV2,void,SQLiteDatabase db,336
+src/net/micode/notes/data/NotesDatabaseHelper.java,net.micode.notes.data,net.micode.notes.data.NotesDatabaseHelper,no,method,upgradeToV3,void,SQLiteDatabase db,343
+src/net/micode/notes/data/NotesDatabaseHelper.java,net.micode.notes.data,net.micode.notes.data.NotesDatabaseHelper,no,method,upgradeToV4,void,SQLiteDatabase db,358
+src/net/micode/notes/data/NotesProvider.java,net.micode.notes.data,net.micode.notes.data.NotesProvider,no,method,onCreate,boolean,,83
+src/net/micode/notes/data/NotesProvider.java,net.micode.notes.data,net.micode.notes.data.NotesProvider,no,method,query,Cursor,"Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder",89
+src/net/micode/notes/data/NotesProvider.java,net.micode.notes.data,net.micode.notes.data.NotesProvider,no,method,insert,Uri,"Uri uri, ContentValues values",151
+src/net/micode/notes/data/NotesProvider.java,net.micode.notes.data,net.micode.notes.data.NotesProvider,no,method,delete,int,"Uri uri, String selection, String[] selectionArgs",185
+src/net/micode/notes/data/NotesProvider.java,net.micode.notes.data,net.micode.notes.data.NotesProvider,no,method,update,int,"Uri uri, ContentValues values, String selection, String[] selectionArgs",231
+src/net/micode/notes/data/NotesProvider.java,net.micode.notes.data,net.micode.notes.data.NotesProvider,no,method,parseSelection,String,String selection,270
+src/net/micode/notes/data/NotesProvider.java,net.micode.notes.data,net.micode.notes.data.NotesProvider,no,method,increaseNoteVersion,void,"long id, String selection, String[] selectionArgs",274
+src/net/micode/notes/data/NotesProvider.java,net.micode.notes.data,net.micode.notes.data.NotesProvider,no,method,getType,String,Uri uri,300
+src/net/micode/notes/gtask/data/MetaData.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.MetaData,no,method,setMeta,void,"String gid, JSONObject metaInfo",33
+src/net/micode/notes/gtask/data/MetaData.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.MetaData,no,method,getRelatedGid,String,,43
+src/net/micode/notes/gtask/data/MetaData.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.MetaData,no,method,isWorthSaving,boolean,,48
+src/net/micode/notes/gtask/data/MetaData.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.MetaData,no,method,setContentByRemoteJSON,void,JSONObject js,53
+src/net/micode/notes/gtask/data/MetaData.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.MetaData,no,method,setContentByLocalJSON,void,JSONObject js,67
+src/net/micode/notes/gtask/data/MetaData.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.MetaData,no,method,getLocalJSONFromContent,JSONObject,,73
+src/net/micode/notes/gtask/data/MetaData.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.MetaData,no,method,getSyncAction,int,Cursor c,78
+src/net/micode/notes/gtask/data/Node.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.Node,no,constructor,Node,,,50
+src/net/micode/notes/gtask/data/Node.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.Node,no,method,getCreateAction,JSONObject,int actionId,57
+src/net/micode/notes/gtask/data/Node.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.Node,no,method,getUpdateAction,JSONObject,int actionId,59
+src/net/micode/notes/gtask/data/Node.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.Node,no,method,setContentByRemoteJSON,void,JSONObject js,61
+src/net/micode/notes/gtask/data/Node.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.Node,no,method,setContentByLocalJSON,void,JSONObject js,63
+src/net/micode/notes/gtask/data/Node.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.Node,no,method,getLocalJSONFromContent,JSONObject,,65
+src/net/micode/notes/gtask/data/Node.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.Node,no,method,getSyncAction,int,Cursor c,67
+src/net/micode/notes/gtask/data/Node.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.Node,no,method,setGid,void,String gid,69
+src/net/micode/notes/gtask/data/Node.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.Node,no,method,setName,void,String name,73
+src/net/micode/notes/gtask/data/Node.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.Node,no,method,setLastModified,void,long lastModified,77
+src/net/micode/notes/gtask/data/Node.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.Node,no,method,setDeleted,void,boolean deleted,81
+src/net/micode/notes/gtask/data/Node.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.Node,no,method,getGid,String,,85
+src/net/micode/notes/gtask/data/Node.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.Node,no,method,getName,String,,89
+src/net/micode/notes/gtask/data/Node.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.Node,no,method,getLastModified,long,,93
+src/net/micode/notes/gtask/data/Node.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.Node,no,method,getDeleted,boolean,,97
+src/net/micode/notes/gtask/data/SqlData.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.SqlData,no,constructor,SqlData,,Context context,74
+src/net/micode/notes/gtask/data/SqlData.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.SqlData,no,constructor,SqlData,,"Context context, Cursor c",85
+src/net/micode/notes/gtask/data/SqlData.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.SqlData,no,method,loadFromCursor,void,Cursor c,92
+src/net/micode/notes/gtask/data/SqlData.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.SqlData,no,method,setContent,void,JSONObject js,100
+src/net/micode/notes/gtask/data/SqlData.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.SqlData,no,method,getContent,JSONObject,,133
+src/net/micode/notes/gtask/data/SqlData.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.SqlData,no,method,commit,void,"long noteId, boolean validateVersion, long version",147
+src/net/micode/notes/gtask/data/SqlData.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.SqlData,no,method,getId,long,,186
+src/net/micode/notes/gtask/data/SqlNote.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.SqlNote,no,constructor,SqlNote,,Context context,125
+src/net/micode/notes/gtask/data/SqlNote.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.SqlNote,no,constructor,SqlNote,,"Context context, Cursor c",146
+src/net/micode/notes/gtask/data/SqlNote.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.SqlNote,no,constructor,SqlNote,,"Context context, long id",157
+src/net/micode/notes/gtask/data/SqlNote.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.SqlNote,no,method,loadFromCursor,void,long id,169
+src/net/micode/notes/gtask/data/SqlNote.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.SqlNote,no,method,loadFromCursor,void,Cursor c,188
+src/net/micode/notes/gtask/data/SqlNote.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.SqlNote,no,method,loadDataContent,void,,203
+src/net/micode/notes/gtask/data/SqlNote.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.SqlNote,no,method,setContent,boolean,JSONObject js,229
+src/net/micode/notes/gtask/data/SqlNote.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.SqlNote,no,method,getContent,JSONObject,,362
+src/net/micode/notes/gtask/data/SqlNote.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.SqlNote,no,method,setParentId,void,long id,410
+src/net/micode/notes/gtask/data/SqlNote.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.SqlNote,no,method,setGtaskId,void,String gid,415
+src/net/micode/notes/gtask/data/SqlNote.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.SqlNote,no,method,setSyncId,void,long syncId,419
+src/net/micode/notes/gtask/data/SqlNote.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.SqlNote,no,method,resetLocalModified,void,,423
+src/net/micode/notes/gtask/data/SqlNote.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.SqlNote,no,method,getId,long,,427
+src/net/micode/notes/gtask/data/SqlNote.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.SqlNote,no,method,getParentId,long,,431
+src/net/micode/notes/gtask/data/SqlNote.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.SqlNote,no,method,getSnippet,String,,435
+src/net/micode/notes/gtask/data/SqlNote.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.SqlNote,no,method,isNoteType,boolean,,439
+src/net/micode/notes/gtask/data/SqlNote.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.SqlNote,no,method,commit,void,boolean validateVersion,443
+src/net/micode/notes/gtask/data/Task.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.Task,no,constructor,Task,,,48
+src/net/micode/notes/gtask/data/Task.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.Task,no,method,getCreateAction,JSONObject,int actionId,57
+src/net/micode/notes/gtask/data/Task.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.Task,no,method,getUpdateAction,JSONObject,int actionId,106
+src/net/micode/notes/gtask/data/Task.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.Task,no,method,setContentByRemoteJSON,void,JSONObject js,138
+src/net/micode/notes/gtask/data/Task.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.Task,no,method,setContentByLocalJSON,void,JSONObject js,178
+src/net/micode/notes/gtask/data/Task.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.Task,no,method,getLocalJSONFromContent,JSONObject,,207
+src/net/micode/notes/gtask/data/Task.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.Task,no,method,setMetaInfo,void,MetaData metaData,250
+src/net/micode/notes/gtask/data/Task.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.Task,no,method,getSyncAction,int,Cursor c,261
+src/net/micode/notes/gtask/data/Task.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.Task,no,method,isWorthSaving,boolean,,314
+src/net/micode/notes/gtask/data/Task.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.Task,no,method,setCompleted,void,boolean completed,319
+src/net/micode/notes/gtask/data/Task.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.Task,no,method,setNotes,void,String notes,323
+src/net/micode/notes/gtask/data/Task.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.Task,no,method,setPriorSibling,void,Task priorSibling,327
+src/net/micode/notes/gtask/data/Task.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.Task,no,method,setParent,void,TaskList parent,331
+src/net/micode/notes/gtask/data/Task.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.Task,no,method,getCompleted,boolean,,335
+src/net/micode/notes/gtask/data/Task.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.Task,no,method,getNotes,String,,339
+src/net/micode/notes/gtask/data/Task.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.Task,no,method,getPriorSibling,Task,,343
+src/net/micode/notes/gtask/data/Task.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.Task,no,method,getParent,TaskList,,347
+src/net/micode/notes/gtask/data/TaskList.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.TaskList,no,constructor,TaskList,,,40
+src/net/micode/notes/gtask/data/TaskList.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.TaskList,no,method,getCreateAction,JSONObject,int actionId,46
+src/net/micode/notes/gtask/data/TaskList.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.TaskList,no,method,getUpdateAction,JSONObject,int actionId,77
+src/net/micode/notes/gtask/data/TaskList.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.TaskList,no,method,setContentByRemoteJSON,void,JSONObject js,106
+src/net/micode/notes/gtask/data/TaskList.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.TaskList,no,method,setContentByLocalJSON,void,JSONObject js,132
+src/net/micode/notes/gtask/data/TaskList.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.TaskList,no,method,getLocalJSONFromContent,JSONObject,,160
+src/net/micode/notes/gtask/data/TaskList.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.TaskList,no,method,getSyncAction,int,Cursor c,186
+src/net/micode/notes/gtask/data/TaskList.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.TaskList,no,method,getChildTaskCount,int,,219
+src/net/micode/notes/gtask/data/TaskList.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.TaskList,no,method,addChildTask,boolean,Task task,223
+src/net/micode/notes/gtask/data/TaskList.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.TaskList,no,method,addChildTask,boolean,"Task task, int index",237
+src/net/micode/notes/gtask/data/TaskList.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.TaskList,no,method,removeChildTask,boolean,Task task,263
+src/net/micode/notes/gtask/data/TaskList.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.TaskList,no,method,moveChildTask,boolean,"Task task, int index",284
+src/net/micode/notes/gtask/data/TaskList.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.TaskList,no,method,findChildTaskByGid,Task,String gid,302
+src/net/micode/notes/gtask/data/TaskList.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.TaskList,no,method,getChildTaskIndex,int,Task task,312
+src/net/micode/notes/gtask/data/TaskList.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.TaskList,no,method,getChildTaskByIndex,Task,int index,316
+src/net/micode/notes/gtask/data/TaskList.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.TaskList,no,method,getChilTaskByGid,Task,String gid,324
+src/net/micode/notes/gtask/data/TaskList.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.TaskList,no,method,getChildTaskList,ArrayList,,332
+src/net/micode/notes/gtask/data/TaskList.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.TaskList,no,method,setIndex,void,int index,336
+src/net/micode/notes/gtask/data/TaskList.java,net.micode.notes.gtask.data,net.micode.notes.gtask.data.TaskList,no,method,getIndex,int,,340
+src/net/micode/notes/gtask/exception/ActionFailureException.java,net.micode.notes.gtask.exception,net.micode.notes.gtask.exception.ActionFailureException,no,constructor,ActionFailureException,,,22
+src/net/micode/notes/gtask/exception/ActionFailureException.java,net.micode.notes.gtask.exception,net.micode.notes.gtask.exception.ActionFailureException,no,constructor,ActionFailureException,,String paramString,26
+src/net/micode/notes/gtask/exception/ActionFailureException.java,net.micode.notes.gtask.exception,net.micode.notes.gtask.exception.ActionFailureException,no,constructor,ActionFailureException,,"String paramString, Throwable paramThrowable",30
+src/net/micode/notes/gtask/exception/NetworkFailureException.java,net.micode.notes.gtask.exception,net.micode.notes.gtask.exception.NetworkFailureException,no,constructor,NetworkFailureException,,,22
+src/net/micode/notes/gtask/exception/NetworkFailureException.java,net.micode.notes.gtask.exception,net.micode.notes.gtask.exception.NetworkFailureException,no,constructor,NetworkFailureException,,String paramString,26
+src/net/micode/notes/gtask/exception/NetworkFailureException.java,net.micode.notes.gtask.exception,net.micode.notes.gtask.exception.NetworkFailureException,no,constructor,NetworkFailureException,,"String paramString, Throwable paramThrowable",30
+src/net/micode/notes/gtask/remote/GTaskASyncTask.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskASyncTask.OnCompleteListener,no,method,onComplete,void,,37
+src/net/micode/notes/gtask/remote/GTaskASyncTask.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskASyncTask,no,constructor,GTaskASyncTask,,"Context context, OnCompleteListener listener",48
+src/net/micode/notes/gtask/remote/GTaskASyncTask.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskASyncTask,no,method,cancelSync,void,,56
+src/net/micode/notes/gtask/remote/GTaskASyncTask.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskASyncTask,no,method,publishProgess,void,String message,60
+src/net/micode/notes/gtask/remote/GTaskASyncTask.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskASyncTask,no,method,showNotification,void,"int tickerId, String content",66
+src/net/micode/notes/gtask/remote/GTaskASyncTask.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskASyncTask,no,method,doInBackground,Integer,Void unused,86
+src/net/micode/notes/gtask/remote/GTaskASyncTask.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskASyncTask,no,method,onProgressUpdate,void,String progress,93
+src/net/micode/notes/gtask/remote/GTaskASyncTask.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskASyncTask,no,method,onPostExecute,void,Integer result,101
+src/net/micode/notes/gtask/remote/GTaskASyncTask.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskASyncTask#anonymous,yes,method,run,void,,117
+src/net/micode/notes/gtask/remote/GTaskClient.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskClient,no,constructor,GTaskClient,,,93
+src/net/micode/notes/gtask/remote/GTaskClient.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskClient,no,method,getInstance,GTaskClient,,105
+src/net/micode/notes/gtask/remote/GTaskClient.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskClient,no,method,login,boolean,Activity activity,112
+src/net/micode/notes/gtask/remote/GTaskClient.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskClient,no,method,loginGoogleAccount,String,"Activity activity, boolean invalidateToken",167
+src/net/micode/notes/gtask/remote/GTaskClient.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskClient,no,method,tryToLoginGtask,boolean,"Activity activity, String authToken",210
+src/net/micode/notes/gtask/remote/GTaskClient.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskClient,no,method,loginGtask,boolean,String authToken,228
+src/net/micode/notes/gtask/remote/GTaskClient.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskClient,no,method,getActionId,int,,283
+src/net/micode/notes/gtask/remote/GTaskClient.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskClient,no,method,createHttpPost,HttpPost,,287
+src/net/micode/notes/gtask/remote/GTaskClient.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskClient,no,method,getResponseContent,String,HttpEntity entity,294
+src/net/micode/notes/gtask/remote/GTaskClient.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskClient,no,method,postRequest,JSONObject,JSONObject js,326
+src/net/micode/notes/gtask/remote/GTaskClient.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskClient,no,method,createTask,void,Task task,363
+src/net/micode/notes/gtask/remote/GTaskClient.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskClient,no,method,createTaskList,void,TaskList tasklist,389
+src/net/micode/notes/gtask/remote/GTaskClient.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskClient,no,method,commitUpdate,void,,415
+src/net/micode/notes/gtask/remote/GTaskClient.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskClient,no,method,addUpdateNode,void,Node node,436
+src/net/micode/notes/gtask/remote/GTaskClient.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskClient,no,method,moveTask,void,"Task task, TaskList preParent, TaskList curParent",450
+src/net/micode/notes/gtask/remote/GTaskClient.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskClient,no,method,deleteNode,void,Node node,489
+src/net/micode/notes/gtask/remote/GTaskClient.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskClient,no,method,getTaskLists,JSONArray,,512
+src/net/micode/notes/gtask/remote/GTaskClient.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskClient,no,method,getTaskList,JSONArray,String listGid,550
+src/net/micode/notes/gtask/remote/GTaskClient.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskClient,no,method,getSyncAccount,Account,,578
+src/net/micode/notes/gtask/remote/GTaskClient.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskClient,no,method,resetUpdateArray,void,,582
+src/net/micode/notes/gtask/remote/GTaskManager.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskManager,no,constructor,GTaskManager,,,90
+src/net/micode/notes/gtask/remote/GTaskManager.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskManager,no,method,getInstance,GTaskManager,,102
+src/net/micode/notes/gtask/remote/GTaskManager.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskManager,no,method,setActivityContext,void,Activity activity,109
+src/net/micode/notes/gtask/remote/GTaskManager.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskManager,no,method,sync,int,"Context context, GTaskASyncTask asyncTask",114
+src/net/micode/notes/gtask/remote/GTaskManager.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskManager,no,method,initGTaskList,void,,171
+src/net/micode/notes/gtask/remote/GTaskManager.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskManager,no,method,syncContent,void,,250
+src/net/micode/notes/gtask/remote/GTaskManager.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskManager,no,method,syncFolder,void,,354
+src/net/micode/notes/gtask/remote/GTaskManager.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskManager,no,method,doContentSync,void,"int syncType, Node node, Cursor c",479
+src/net/micode/notes/gtask/remote/GTaskManager.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskManager,no,method,addLocalNode,void,Node node,525
+src/net/micode/notes/gtask/remote/GTaskManager.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskManager,no,method,updateLocalNode,void,"Node node, Cursor c",599
+src/net/micode/notes/gtask/remote/GTaskManager.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskManager,no,method,addRemoteNode,void,"Node node, Cursor c",622
+src/net/micode/notes/gtask/remote/GTaskManager.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskManager,no,method,updateRemoteNode,void,"Node node, Cursor c",695
+src/net/micode/notes/gtask/remote/GTaskManager.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskManager,no,method,updateRemoteMeta,void,"String gid, SqlNote sqlNote",733
+src/net/micode/notes/gtask/remote/GTaskManager.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskManager,no,method,refreshLocalSyncId,void,,749
+src/net/micode/notes/gtask/remote/GTaskManager.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskManager,no,method,getSyncAccount,String,,793
+src/net/micode/notes/gtask/remote/GTaskManager.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskManager,no,method,cancelSync,void,,797
+src/net/micode/notes/gtask/remote/GTaskSyncService.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskSyncService,no,method,startSync,void,,45
+src/net/micode/notes/gtask/remote/GTaskSyncService.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskSyncService,no,method,cancelSync,void,,59
+src/net/micode/notes/gtask/remote/GTaskSyncService.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskSyncService,no,method,onCreate,void,,66
+src/net/micode/notes/gtask/remote/GTaskSyncService.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskSyncService,no,method,onStartCommand,int,"Intent intent, int flags, int startId",71
+src/net/micode/notes/gtask/remote/GTaskSyncService.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskSyncService,no,method,onLowMemory,void,,90
+src/net/micode/notes/gtask/remote/GTaskSyncService.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskSyncService,no,method,onBind,IBinder,Intent intent,96
+src/net/micode/notes/gtask/remote/GTaskSyncService.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskSyncService,no,method,sendBroadcast,void,String msg,100
+src/net/micode/notes/gtask/remote/GTaskSyncService.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskSyncService,no,method,startSync,void,Activity activity,108
+src/net/micode/notes/gtask/remote/GTaskSyncService.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskSyncService,no,method,cancelSync,void,Context context,115
+src/net/micode/notes/gtask/remote/GTaskSyncService.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskSyncService,no,method,isSyncing,boolean,,121
+src/net/micode/notes/gtask/remote/GTaskSyncService.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskSyncService,no,method,getProgressString,String,,125
+src/net/micode/notes/gtask/remote/GTaskSyncService.java,net.micode.notes.gtask.remote,net.micode.notes.gtask.remote.GTaskSyncService#anonymous,yes,method,onComplete,void,,48
+src/net/micode/notes/model/Note.java,net.micode.notes.model,net.micode.notes.model.Note,no,method,getNewNoteId,long,"Context context, long folderId",44
+src/net/micode/notes/model/Note.java,net.micode.notes.model,net.micode.notes.model.Note,no,constructor,Note,,,68
+src/net/micode/notes/model/Note.java,net.micode.notes.model,net.micode.notes.model.Note,no,method,setNoteValue,void,"String key, String value",73
+src/net/micode/notes/model/Note.java,net.micode.notes.model,net.micode.notes.model.Note,no,method,setTextData,void,"String key, String value",79
+src/net/micode/notes/model/Note.java,net.micode.notes.model,net.micode.notes.model.Note,no,method,setTextDataId,void,long id,83
+src/net/micode/notes/model/Note.java,net.micode.notes.model,net.micode.notes.model.Note,no,method,getTextDataId,long,,87
+src/net/micode/notes/model/Note.java,net.micode.notes.model,net.micode.notes.model.Note,no,method,setCallDataId,void,long id,91
+src/net/micode/notes/model/Note.java,net.micode.notes.model,net.micode.notes.model.Note,no,method,setCallData,void,"String key, String value",95
+src/net/micode/notes/model/Note.java,net.micode.notes.model,net.micode.notes.model.Note,no,method,isLocalModified,boolean,,99
+src/net/micode/notes/model/Note.java,net.micode.notes.model,net.micode.notes.model.Note,no,method,syncNote,boolean,"Context context, long noteId",103
+src/net/micode/notes/model/Note.java,net.micode.notes.model,net.micode.notes.model.Note.NoteData,no,constructor,NoteData,,,144
+src/net/micode/notes/model/Note.java,net.micode.notes.model,net.micode.notes.model.Note.NoteData,no,method,isLocalModified,boolean,,151
+src/net/micode/notes/model/Note.java,net.micode.notes.model,net.micode.notes.model.Note.NoteData,no,method,setTextDataId,void,long id,155
+src/net/micode/notes/model/Note.java,net.micode.notes.model,net.micode.notes.model.Note.NoteData,no,method,setCallDataId,void,long id,162
+src/net/micode/notes/model/Note.java,net.micode.notes.model,net.micode.notes.model.Note.NoteData,no,method,setCallData,void,"String key, String value",169
+src/net/micode/notes/model/Note.java,net.micode.notes.model,net.micode.notes.model.Note.NoteData,no,method,setTextData,void,"String key, String value",175
+src/net/micode/notes/model/Note.java,net.micode.notes.model,net.micode.notes.model.Note.NoteData,no,method,pushIntoContentResolver,Uri,"Context context, long noteId",181
+src/net/micode/notes/model/WorkingNote.java,net.micode.notes.model,net.micode.notes.model.WorkingNote,no,constructor,WorkingNote,,"Context context, long folderId",105
+src/net/micode/notes/model/WorkingNote.java,net.micode.notes.model,net.micode.notes.model.WorkingNote,no,constructor,WorkingNote,,"Context context, long noteId, long folderId",118
+src/net/micode/notes/model/WorkingNote.java,net.micode.notes.model,net.micode.notes.model.WorkingNote,no,method,loadNote,void,,127
+src/net/micode/notes/model/WorkingNote.java,net.micode.notes.model,net.micode.notes.model.WorkingNote,no,method,loadNoteData,void,,149
+src/net/micode/notes/model/WorkingNote.java,net.micode.notes.model,net.micode.notes.model.WorkingNote,no,method,createEmptyNote,WorkingNote,"Context context, long folderId, int widgetId, int widgetType, int defaultBgColorId",177
+src/net/micode/notes/model/WorkingNote.java,net.micode.notes.model,net.micode.notes.model.WorkingNote,no,method,load,WorkingNote,"Context context, long id",186
+src/net/micode/notes/model/WorkingNote.java,net.micode.notes.model,net.micode.notes.model.WorkingNote,no,method,saveNote,boolean,,190
+src/net/micode/notes/model/WorkingNote.java,net.micode.notes.model,net.micode.notes.model.WorkingNote,no,method,existInDatabase,boolean,,215
+src/net/micode/notes/model/WorkingNote.java,net.micode.notes.model,net.micode.notes.model.WorkingNote,no,method,isWorthSaving,boolean,,219
+src/net/micode/notes/model/WorkingNote.java,net.micode.notes.model,net.micode.notes.model.WorkingNote,no,method,setOnSettingStatusChangedListener,void,NoteSettingChangedListener l,228
+src/net/micode/notes/model/WorkingNote.java,net.micode.notes.model,net.micode.notes.model.WorkingNote,no,method,setAlertDate,void,"long date, boolean set",232
+src/net/micode/notes/model/WorkingNote.java,net.micode.notes.model,net.micode.notes.model.WorkingNote,no,method,markDeleted,void,boolean mark,242
+src/net/micode/notes/model/WorkingNote.java,net.micode.notes.model,net.micode.notes.model.WorkingNote,no,method,setBgColorId,void,int id,250
+src/net/micode/notes/model/WorkingNote.java,net.micode.notes.model,net.micode.notes.model.WorkingNote,no,method,setCheckListMode,void,int mode,260
+src/net/micode/notes/model/WorkingNote.java,net.micode.notes.model,net.micode.notes.model.WorkingNote,no,method,setWidgetType,void,int type,270
+src/net/micode/notes/model/WorkingNote.java,net.micode.notes.model,net.micode.notes.model.WorkingNote,no,method,setWidgetId,void,int id,277
+src/net/micode/notes/model/WorkingNote.java,net.micode.notes.model,net.micode.notes.model.WorkingNote,no,method,setWorkingText,void,String text,284
+src/net/micode/notes/model/WorkingNote.java,net.micode.notes.model,net.micode.notes.model.WorkingNote,no,method,convertToCallNote,void,"String phoneNumber, long callDate",291
+src/net/micode/notes/model/WorkingNote.java,net.micode.notes.model,net.micode.notes.model.WorkingNote,no,method,hasClockAlert,boolean,,297
+src/net/micode/notes/model/WorkingNote.java,net.micode.notes.model,net.micode.notes.model.WorkingNote,no,method,getContent,String,,301
+src/net/micode/notes/model/WorkingNote.java,net.micode.notes.model,net.micode.notes.model.WorkingNote,no,method,getAlertDate,long,,305
+src/net/micode/notes/model/WorkingNote.java,net.micode.notes.model,net.micode.notes.model.WorkingNote,no,method,getModifiedDate,long,,309
+src/net/micode/notes/model/WorkingNote.java,net.micode.notes.model,net.micode.notes.model.WorkingNote,no,method,getBgColorResId,int,,313
+src/net/micode/notes/model/WorkingNote.java,net.micode.notes.model,net.micode.notes.model.WorkingNote,no,method,getBgColorId,int,,317
+src/net/micode/notes/model/WorkingNote.java,net.micode.notes.model,net.micode.notes.model.WorkingNote,no,method,getTitleBgResId,int,,321
+src/net/micode/notes/model/WorkingNote.java,net.micode.notes.model,net.micode.notes.model.WorkingNote,no,method,getCheckListMode,int,,325
+src/net/micode/notes/model/WorkingNote.java,net.micode.notes.model,net.micode.notes.model.WorkingNote,no,method,getNoteId,long,,329
+src/net/micode/notes/model/WorkingNote.java,net.micode.notes.model,net.micode.notes.model.WorkingNote,no,method,getFolderId,long,,333
+src/net/micode/notes/model/WorkingNote.java,net.micode.notes.model,net.micode.notes.model.WorkingNote,no,method,getWidgetId,int,,337
+src/net/micode/notes/model/WorkingNote.java,net.micode.notes.model,net.micode.notes.model.WorkingNote,no,method,getWidgetType,int,,341
+src/net/micode/notes/model/WorkingNote.java,net.micode.notes.model,net.micode.notes.model.WorkingNote.NoteSettingChangedListener,no,method,onBackgroundColorChanged,void,,349
+src/net/micode/notes/model/WorkingNote.java,net.micode.notes.model,net.micode.notes.model.WorkingNote.NoteSettingChangedListener,no,method,onClockAlertChanged,void,"long date, boolean set",354
+src/net/micode/notes/model/WorkingNote.java,net.micode.notes.model,net.micode.notes.model.WorkingNote.NoteSettingChangedListener,no,method,onWidgetChanged,void,,359
+src/net/micode/notes/model/WorkingNote.java,net.micode.notes.model,net.micode.notes.model.WorkingNote.NoteSettingChangedListener,no,method,onCheckListModeChanged,void,"int oldMode, int newMode",366
+src/net/micode/notes/tool/BackupUtils.java,net.micode.notes.tool,net.micode.notes.tool.BackupUtils,no,method,getInstance,BackupUtils,Context context,44
+src/net/micode/notes/tool/BackupUtils.java,net.micode.notes.tool,net.micode.notes.tool.BackupUtils,no,constructor,BackupUtils,,Context context,68
+src/net/micode/notes/tool/BackupUtils.java,net.micode.notes.tool,net.micode.notes.tool.BackupUtils,no,method,externalStorageAvailable,boolean,,72
+src/net/micode/notes/tool/BackupUtils.java,net.micode.notes.tool,net.micode.notes.tool.BackupUtils,no,method,exportToText,int,,76
+src/net/micode/notes/tool/BackupUtils.java,net.micode.notes.tool,net.micode.notes.tool.BackupUtils,no,method,getExportedTextFileName,String,,80
+src/net/micode/notes/tool/BackupUtils.java,net.micode.notes.tool,net.micode.notes.tool.BackupUtils,no,method,getExportedTextFileDir,String,,84
+src/net/micode/notes/tool/BackupUtils.java,net.micode.notes.tool,net.micode.notes.tool.BackupUtils.TextExport,no,constructor,TextExport,,Context context,128
+src/net/micode/notes/tool/BackupUtils.java,net.micode.notes.tool,net.micode.notes.tool.BackupUtils.TextExport,no,method,getFormat,String,int id,135
+src/net/micode/notes/tool/BackupUtils.java,net.micode.notes.tool,net.micode.notes.tool.BackupUtils.TextExport,no,method,exportFolderToText,void,"String folderId, PrintStream ps",142
+src/net/micode/notes/tool/BackupUtils.java,net.micode.notes.tool,net.micode.notes.tool.BackupUtils.TextExport,no,method,exportNoteToText,void,"String noteId, PrintStream ps",168
+src/net/micode/notes/tool/BackupUtils.java,net.micode.notes.tool,net.micode.notes.tool.BackupUtils.TextExport,no,method,exportToText,int,,221
+src/net/micode/notes/tool/BackupUtils.java,net.micode.notes.tool,net.micode.notes.tool.BackupUtils.TextExport,no,method,getExportToTextPrintStream,PrintStream,,288
+src/net/micode/notes/tool/BackupUtils.java,net.micode.notes.tool,net.micode.notes.tool.BackupUtils,no,method,generateFileMountedOnSDcard,File,"Context context, int filePathResId, int fileNameFormatResId",315
+src/net/micode/notes/tool/DataUtils.java,net.micode.notes.tool,net.micode.notes.tool.DataUtils,no,method,batchDeleteNotes,boolean,"ContentResolver resolver, HashSet ids",40
+src/net/micode/notes/tool/DataUtils.java,net.micode.notes.tool,net.micode.notes.tool.DataUtils,no,method,moveNoteToFoler,void,"ContentResolver resolver, long id, long srcFolderId, long desFolderId",75
+src/net/micode/notes/tool/DataUtils.java,net.micode.notes.tool,net.micode.notes.tool.DataUtils,no,method,batchMoveToFolder,boolean,"ContentResolver resolver, HashSet ids, long folderId",83
+src/net/micode/notes/tool/DataUtils.java,net.micode.notes.tool,net.micode.notes.tool.DataUtils,no,method,getUserFolderCount,int,ContentResolver resolver,117
+src/net/micode/notes/tool/DataUtils.java,net.micode.notes.tool,net.micode.notes.tool.DataUtils,no,method,visibleInNoteDatabase,boolean,"ContentResolver resolver, long noteId, int type",139
+src/net/micode/notes/tool/DataUtils.java,net.micode.notes.tool,net.micode.notes.tool.DataUtils,no,method,existInNoteDatabase,boolean,"ContentResolver resolver, long noteId",156
+src/net/micode/notes/tool/DataUtils.java,net.micode.notes.tool,net.micode.notes.tool.DataUtils,no,method,existInDataDatabase,boolean,"ContentResolver resolver, long dataId",170
+src/net/micode/notes/tool/DataUtils.java,net.micode.notes.tool,net.micode.notes.tool.DataUtils,no,method,checkVisibleFolderName,boolean,"ContentResolver resolver, String name",184
+src/net/micode/notes/tool/DataUtils.java,net.micode.notes.tool,net.micode.notes.tool.DataUtils,no,method,getFolderNoteWidget,HashSet,"ContentResolver resolver, long folderId",200
+src/net/micode/notes/tool/DataUtils.java,net.micode.notes.tool,net.micode.notes.tool.DataUtils,no,method,getCallNumberByNoteId,String,"ContentResolver resolver, long noteId",227
+src/net/micode/notes/tool/DataUtils.java,net.micode.notes.tool,net.micode.notes.tool.DataUtils,no,method,getNoteIdByPhoneNumberAndCallDate,long,"ContentResolver resolver, String phoneNumber, long callDate",246
+src/net/micode/notes/tool/DataUtils.java,net.micode.notes.tool,net.micode.notes.tool.DataUtils,no,method,getSnippetById,String,"ContentResolver resolver, long noteId",267
+src/net/micode/notes/tool/DataUtils.java,net.micode.notes.tool,net.micode.notes.tool.DataUtils,no,method,getFormattedSnippet,String,String snippet,285
+src/net/micode/notes/tool/ResourceParser.java,net.micode.notes.tool,net.micode.notes.tool.ResourceParser.NoteBgResources,no,method,getNoteBgResource,int,int id,59
+src/net/micode/notes/tool/ResourceParser.java,net.micode.notes.tool,net.micode.notes.tool.ResourceParser.NoteBgResources,no,method,getNoteTitleBgResource,int,int id,63
+src/net/micode/notes/tool/ResourceParser.java,net.micode.notes.tool,net.micode.notes.tool.ResourceParser,no,method,getDefaultBgId,int,Context context,68
+src/net/micode/notes/tool/ResourceParser.java,net.micode.notes.tool,net.micode.notes.tool.ResourceParser.NoteItemBgResources,no,method,getNoteBgFirstRes,int,int id,110
+src/net/micode/notes/tool/ResourceParser.java,net.micode.notes.tool,net.micode.notes.tool.ResourceParser.NoteItemBgResources,no,method,getNoteBgLastRes,int,int id,114
+src/net/micode/notes/tool/ResourceParser.java,net.micode.notes.tool,net.micode.notes.tool.ResourceParser.NoteItemBgResources,no,method,getNoteBgSingleRes,int,int id,118
+src/net/micode/notes/tool/ResourceParser.java,net.micode.notes.tool,net.micode.notes.tool.ResourceParser.NoteItemBgResources,no,method,getNoteBgNormalRes,int,int id,122
+src/net/micode/notes/tool/ResourceParser.java,net.micode.notes.tool,net.micode.notes.tool.ResourceParser.NoteItemBgResources,no,method,getFolderBgRes,int,,126
+src/net/micode/notes/tool/ResourceParser.java,net.micode.notes.tool,net.micode.notes.tool.ResourceParser.WidgetBgResources,no,method,getWidget2xBgResource,int,int id,140
+src/net/micode/notes/tool/ResourceParser.java,net.micode.notes.tool,net.micode.notes.tool.ResourceParser.WidgetBgResources,no,method,getWidget4xBgResource,int,int id,152
+src/net/micode/notes/tool/ResourceParser.java,net.micode.notes.tool,net.micode.notes.tool.ResourceParser.TextAppearanceResources,no,method,getTexAppearanceResource,int,int id,165
+src/net/micode/notes/tool/ResourceParser.java,net.micode.notes.tool,net.micode.notes.tool.ResourceParser.TextAppearanceResources,no,method,getResourcesSize,int,,177
+src/net/micode/notes/ui/AlarmAlertActivity.java,net.micode.notes.ui,net.micode.notes.ui.AlarmAlertActivity,no,method,onCreate,void,Bundle savedInstanceState,50
+src/net/micode/notes/ui/AlarmAlertActivity.java,net.micode.notes.ui,net.micode.notes.ui.AlarmAlertActivity,no,method,isScreenOn,boolean,,86
+src/net/micode/notes/ui/AlarmAlertActivity.java,net.micode.notes.ui,net.micode.notes.ui.AlarmAlertActivity,no,method,playAlarmSound,void,,91
+src/net/micode/notes/ui/AlarmAlertActivity.java,net.micode.notes.ui,net.micode.notes.ui.AlarmAlertActivity,no,method,showActionDialog,void,,122
+src/net/micode/notes/ui/AlarmAlertActivity.java,net.micode.notes.ui,net.micode.notes.ui.AlarmAlertActivity,no,method,onClick,void,"DialogInterface dialog, int which",133
+src/net/micode/notes/ui/AlarmAlertActivity.java,net.micode.notes.ui,net.micode.notes.ui.AlarmAlertActivity,no,method,onDismiss,void,DialogInterface dialog,146
+src/net/micode/notes/ui/AlarmAlertActivity.java,net.micode.notes.ui,net.micode.notes.ui.AlarmAlertActivity,no,method,stopAlarmSound,void,,151
+src/net/micode/notes/ui/AlarmInitReceiver.java,net.micode.notes.ui,net.micode.notes.ui.AlarmInitReceiver,no,method,onReceive,void,"Context context, Intent intent",42
+src/net/micode/notes/ui/AlarmReceiver.java,net.micode.notes.ui,net.micode.notes.ui.AlarmReceiver,no,method,onReceive,void,"Context context, Intent intent",25
+src/net/micode/notes/ui/DateTimePicker.java,net.micode.notes.ui,net.micode.notes.ui.DateTimePicker.OnDateTimeChangedListener,no,method,onDateTimeChanged,void,"DateTimePicker view, int year, int month, int dayOfMonth, int hourOfDay, int minute",162
+src/net/micode/notes/ui/DateTimePicker.java,net.micode.notes.ui,net.micode.notes.ui.DateTimePicker,no,constructor,DateTimePicker,,Context context,166
+src/net/micode/notes/ui/DateTimePicker.java,net.micode.notes.ui,net.micode.notes.ui.DateTimePicker,no,constructor,DateTimePicker,,"Context context, long date",170
+src/net/micode/notes/ui/DateTimePicker.java,net.micode.notes.ui,net.micode.notes.ui.DateTimePicker,no,constructor,DateTimePicker,,"Context context, long date, boolean is24HourView",174
+src/net/micode/notes/ui/DateTimePicker.java,net.micode.notes.ui,net.micode.notes.ui.DateTimePicker,no,method,setEnabled,void,boolean enabled,218
+src/net/micode/notes/ui/DateTimePicker.java,net.micode.notes.ui,net.micode.notes.ui.DateTimePicker,no,method,isEnabled,boolean,,231
+src/net/micode/notes/ui/DateTimePicker.java,net.micode.notes.ui,net.micode.notes.ui.DateTimePicker,no,method,getCurrentDateInTimeMillis,long,,240
+src/net/micode/notes/ui/DateTimePicker.java,net.micode.notes.ui,net.micode.notes.ui.DateTimePicker,no,method,setCurrentDate,void,long date,249
+src/net/micode/notes/ui/DateTimePicker.java,net.micode.notes.ui,net.micode.notes.ui.DateTimePicker,no,method,setCurrentDate,void,"int year, int month, int dayOfMonth, int hourOfDay, int minute",265
+src/net/micode/notes/ui/DateTimePicker.java,net.micode.notes.ui,net.micode.notes.ui.DateTimePicker,no,method,getCurrentYear,int,,279
+src/net/micode/notes/ui/DateTimePicker.java,net.micode.notes.ui,net.micode.notes.ui.DateTimePicker,no,method,setCurrentYear,void,int year,288
+src/net/micode/notes/ui/DateTimePicker.java,net.micode.notes.ui,net.micode.notes.ui.DateTimePicker,no,method,getCurrentMonth,int,,302
+src/net/micode/notes/ui/DateTimePicker.java,net.micode.notes.ui,net.micode.notes.ui.DateTimePicker,no,method,setCurrentMonth,void,int month,311
+src/net/micode/notes/ui/DateTimePicker.java,net.micode.notes.ui,net.micode.notes.ui.DateTimePicker,no,method,getCurrentDay,int,,325
+src/net/micode/notes/ui/DateTimePicker.java,net.micode.notes.ui,net.micode.notes.ui.DateTimePicker,no,method,setCurrentDay,void,int dayOfMonth,334
+src/net/micode/notes/ui/DateTimePicker.java,net.micode.notes.ui,net.micode.notes.ui.DateTimePicker,no,method,getCurrentHourOfDay,int,,347
+src/net/micode/notes/ui/DateTimePicker.java,net.micode.notes.ui,net.micode.notes.ui.DateTimePicker,no,method,getCurrentHour,int,,351
+src/net/micode/notes/ui/DateTimePicker.java,net.micode.notes.ui,net.micode.notes.ui.DateTimePicker,no,method,setCurrentHour,void,int hourOfDay,369
+src/net/micode/notes/ui/DateTimePicker.java,net.micode.notes.ui,net.micode.notes.ui.DateTimePicker,no,method,getCurrentMinute,int,,397
+src/net/micode/notes/ui/DateTimePicker.java,net.micode.notes.ui,net.micode.notes.ui.DateTimePicker,no,method,setCurrentMinute,void,int minute,404
+src/net/micode/notes/ui/DateTimePicker.java,net.micode.notes.ui,net.micode.notes.ui.DateTimePicker,no,method,is24HourView,boolean,,416
+src/net/micode/notes/ui/DateTimePicker.java,net.micode.notes.ui,net.micode.notes.ui.DateTimePicker,no,method,set24HourView,void,boolean is24HourView,425
+src/net/micode/notes/ui/DateTimePicker.java,net.micode.notes.ui,net.micode.notes.ui.DateTimePicker,no,method,updateDateControl,void,,437
+src/net/micode/notes/ui/DateTimePicker.java,net.micode.notes.ui,net.micode.notes.ui.DateTimePicker,no,method,updateAmPmControl,void,,451
+src/net/micode/notes/ui/DateTimePicker.java,net.micode.notes.ui,net.micode.notes.ui.DateTimePicker,no,method,updateHourControl,void,,461
+src/net/micode/notes/ui/DateTimePicker.java,net.micode.notes.ui,net.micode.notes.ui.DateTimePicker,no,method,setOnDateTimeChangedListener,void,OnDateTimeChangedListener callback,475
+src/net/micode/notes/ui/DateTimePicker.java,net.micode.notes.ui,net.micode.notes.ui.DateTimePicker,no,method,onDateTimeChanged,void,,479
+src/net/micode/notes/ui/DateTimePicker.java,net.micode.notes.ui,net.micode.notes.ui.DateTimePicker#anonymous,yes,method,onValueChange,void,"NumberPicker picker, int oldVal, int newVal",69
+src/net/micode/notes/ui/DateTimePicker.java,net.micode.notes.ui,net.micode.notes.ui.DateTimePicker#anonymous,yes,method,onValueChange,void,"NumberPicker picker, int oldVal, int newVal",78
+src/net/micode/notes/ui/DateTimePicker.java,net.micode.notes.ui,net.micode.notes.ui.DateTimePicker#anonymous,yes,method,onValueChange,void,"NumberPicker picker, int oldVal, int newVal",120
+src/net/micode/notes/ui/DateTimePicker.java,net.micode.notes.ui,net.micode.notes.ui.DateTimePicker#anonymous,yes,method,onValueChange,void,"NumberPicker picker, int oldVal, int newVal",149
+src/net/micode/notes/ui/DateTimePickerDialog.java,net.micode.notes.ui,net.micode.notes.ui.DateTimePickerDialog.OnDateTimeSetListener,no,method,OnDateTimeSet,void,"AlertDialog dialog, long date",40
+src/net/micode/notes/ui/DateTimePickerDialog.java,net.micode.notes.ui,net.micode.notes.ui.DateTimePickerDialog,no,constructor,DateTimePickerDialog,,"Context context, long date",43
+src/net/micode/notes/ui/DateTimePickerDialog.java,net.micode.notes.ui,net.micode.notes.ui.DateTimePickerDialog,no,method,set24HourView,void,boolean is24HourView,67
+src/net/micode/notes/ui/DateTimePickerDialog.java,net.micode.notes.ui,net.micode.notes.ui.DateTimePickerDialog,no,method,setOnDateTimeSetListener,void,OnDateTimeSetListener callBack,71
+src/net/micode/notes/ui/DateTimePickerDialog.java,net.micode.notes.ui,net.micode.notes.ui.DateTimePickerDialog,no,method,updateTitle,void,long date,75
+src/net/micode/notes/ui/DateTimePickerDialog.java,net.micode.notes.ui,net.micode.notes.ui.DateTimePickerDialog,no,method,onClick,void,"DialogInterface arg0, int arg1",84
+src/net/micode/notes/ui/DateTimePickerDialog.java,net.micode.notes.ui,net.micode.notes.ui.DateTimePickerDialog#anonymous,yes,method,onDateTimeChanged,void,"DateTimePicker view, int year, int month, int dayOfMonth, int hourOfDay, int minute",48
+src/net/micode/notes/ui/DropdownMenu.java,net.micode.notes.ui,net.micode.notes.ui.DropdownMenu,no,constructor,DropdownMenu,,"Context context, Button button, int menuId",35
+src/net/micode/notes/ui/DropdownMenu.java,net.micode.notes.ui,net.micode.notes.ui.DropdownMenu,no,method,setOnDropdownMenuItemClickListener,void,OnMenuItemClickListener listener,48
+src/net/micode/notes/ui/DropdownMenu.java,net.micode.notes.ui,net.micode.notes.ui.DropdownMenu,no,method,findItem,MenuItem,int id,54
+src/net/micode/notes/ui/DropdownMenu.java,net.micode.notes.ui,net.micode.notes.ui.DropdownMenu,no,method,setTitle,void,CharSequence title,58
+src/net/micode/notes/ui/DropdownMenu.java,net.micode.notes.ui,net.micode.notes.ui.DropdownMenu#anonymous,yes,method,onClick,void,View v,42
+src/net/micode/notes/ui/FoldersListAdapter.java,net.micode.notes.ui,net.micode.notes.ui.FoldersListAdapter,no,constructor,FoldersListAdapter,,"Context context, Cursor c",41
+src/net/micode/notes/ui/FoldersListAdapter.java,net.micode.notes.ui,net.micode.notes.ui.FoldersListAdapter,no,method,newView,View,"Context context, Cursor cursor, ViewGroup parent",47
+src/net/micode/notes/ui/FoldersListAdapter.java,net.micode.notes.ui,net.micode.notes.ui.FoldersListAdapter,no,method,bindView,void,"View view, Context context, Cursor cursor",52
+src/net/micode/notes/ui/FoldersListAdapter.java,net.micode.notes.ui,net.micode.notes.ui.FoldersListAdapter,no,method,getFolderName,String,"Context context, int position",60
+src/net/micode/notes/ui/FoldersListAdapter.java,net.micode.notes.ui,net.micode.notes.ui.FoldersListAdapter.FolderListItem,no,constructor,FolderListItem,,Context context,69
+src/net/micode/notes/ui/FoldersListAdapter.java,net.micode.notes.ui,net.micode.notes.ui.FoldersListAdapter.FolderListItem,no,method,bind,void,String name,75
+src/net/micode/notes/ui/NoteEditActivity.java,net.micode.notes.ui,net.micode.notes.ui.NoteEditActivity,no,method,onCreate,void,Bundle savedInstanceState,153
+src/net/micode/notes/ui/NoteEditActivity.java,net.micode.notes.ui,net.micode.notes.ui.NoteEditActivity,no,method,onRestoreInstanceState,void,Bundle savedInstanceState,169
+src/net/micode/notes/ui/NoteEditActivity.java,net.micode.notes.ui,net.micode.notes.ui.NoteEditActivity,no,method,initActivityState,boolean,Intent intent,182
+src/net/micode/notes/ui/NoteEditActivity.java,net.micode.notes.ui,net.micode.notes.ui.NoteEditActivity,no,method,onResume,void,,266
+src/net/micode/notes/ui/NoteEditActivity.java,net.micode.notes.ui,net.micode.notes.ui.NoteEditActivity,no,method,initNoteScreen,void,,271
+src/net/micode/notes/ui/NoteEditActivity.java,net.micode.notes.ui,net.micode.notes.ui.NoteEditActivity,no,method,showAlertHeader,void,,298
+src/net/micode/notes/ui/NoteEditActivity.java,net.micode.notes.ui,net.micode.notes.ui.NoteEditActivity,no,method,onNewIntent,void,Intent intent,316
+src/net/micode/notes/ui/NoteEditActivity.java,net.micode.notes.ui,net.micode.notes.ui.NoteEditActivity,no,method,onSaveInstanceState,void,Bundle outState,322
+src/net/micode/notes/ui/NoteEditActivity.java,net.micode.notes.ui,net.micode.notes.ui.NoteEditActivity,no,method,dispatchTouchEvent,boolean,MotionEvent ev,337
+src/net/micode/notes/ui/NoteEditActivity.java,net.micode.notes.ui,net.micode.notes.ui.NoteEditActivity,no,method,inRangeOfView,boolean,"View view, MotionEvent ev",352
+src/net/micode/notes/ui/NoteEditActivity.java,net.micode.notes.ui,net.micode.notes.ui.NoteEditActivity,no,method,initResources,void,,366
+src/net/micode/notes/ui/NoteEditActivity.java,net.micode.notes.ui,net.micode.notes.ui.NoteEditActivity,no,method,onPause,void,,401
+src/net/micode/notes/ui/NoteEditActivity.java,net.micode.notes.ui,net.micode.notes.ui.NoteEditActivity,no,method,updateWidget,void,,409
+src/net/micode/notes/ui/NoteEditActivity.java,net.micode.notes.ui,net.micode.notes.ui.NoteEditActivity,no,method,onClick,void,View v,428
+src/net/micode/notes/ui/NoteEditActivity.java,net.micode.notes.ui,net.micode.notes.ui.NoteEditActivity,no,method,onBackPressed,void,,456
+src/net/micode/notes/ui/NoteEditActivity.java,net.micode.notes.ui,net.micode.notes.ui.NoteEditActivity,no,method,clearSettingState,boolean,,465
+src/net/micode/notes/ui/NoteEditActivity.java,net.micode.notes.ui,net.micode.notes.ui.NoteEditActivity,no,method,onBackgroundColorChanged,void,,476
+src/net/micode/notes/ui/NoteEditActivity.java,net.micode.notes.ui,net.micode.notes.ui.NoteEditActivity,no,method,onPrepareOptionsMenu,boolean,Menu menu,484
+src/net/micode/notes/ui/NoteEditActivity.java,net.micode.notes.ui,net.micode.notes.ui.NoteEditActivity,no,method,onOptionsItemSelected,boolean,MenuItem item,509
+src/net/micode/notes/ui/NoteEditActivity.java,net.micode.notes.ui,net.micode.notes.ui.NoteEditActivity,no,method,setReminder,void,,556
+src/net/micode/notes/ui/NoteEditActivity.java,net.micode.notes.ui,net.micode.notes.ui.NoteEditActivity,no,method,sendTo,void,"Context context, String info",570
+src/net/micode/notes/ui/NoteEditActivity.java,net.micode.notes.ui,net.micode.notes.ui.NoteEditActivity,no,method,createNewNote,void,,577
+src/net/micode/notes/ui/NoteEditActivity.java,net.micode.notes.ui,net.micode.notes.ui.NoteEditActivity,no,method,deleteCurrentNote,void,,589
+src/net/micode/notes/ui/NoteEditActivity.java,net.micode.notes.ui,net.micode.notes.ui.NoteEditActivity,no,method,isSyncMode,boolean,,611
+src/net/micode/notes/ui/NoteEditActivity.java,net.micode.notes.ui,net.micode.notes.ui.NoteEditActivity,no,method,onClockAlertChanged,void,"long date, boolean set",615
+src/net/micode/notes/ui/NoteEditActivity.java,net.micode.notes.ui,net.micode.notes.ui.NoteEditActivity,no,method,onWidgetChanged,void,,645
+src/net/micode/notes/ui/NoteEditActivity.java,net.micode.notes.ui,net.micode.notes.ui.NoteEditActivity,no,method,onEditTextDelete,void,"int index, String text",649
+src/net/micode/notes/ui/NoteEditActivity.java,net.micode.notes.ui,net.micode.notes.ui.NoteEditActivity,no,method,onEditTextEnter,void,"int index, String text",675
+src/net/micode/notes/ui/NoteEditActivity.java,net.micode.notes.ui,net.micode.notes.ui.NoteEditActivity,no,method,switchToListMode,void,String text,694
+src/net/micode/notes/ui/NoteEditActivity.java,net.micode.notes.ui,net.micode.notes.ui.NoteEditActivity,no,method,getHighlightQueryResult,Spannable,"String fullText, String userQuery",711
+src/net/micode/notes/ui/NoteEditActivity.java,net.micode.notes.ui,net.micode.notes.ui.NoteEditActivity,no,method,getListItem,View,"String item, int index",728
+src/net/micode/notes/ui/NoteEditActivity.java,net.micode.notes.ui,net.micode.notes.ui.NoteEditActivity,no,method,onTextChange,void,"int index, boolean hasText",759
+src/net/micode/notes/ui/NoteEditActivity.java,net.micode.notes.ui,net.micode.notes.ui.NoteEditActivity,no,method,onCheckListModeChanged,void,"int oldMode, int newMode",771
+src/net/micode/notes/ui/NoteEditActivity.java,net.micode.notes.ui,net.micode.notes.ui.NoteEditActivity,no,method,getWorkingText,boolean,,785
+src/net/micode/notes/ui/NoteEditActivity.java,net.micode.notes.ui,net.micode.notes.ui.NoteEditActivity,no,method,saveNote,boolean,,808
+src/net/micode/notes/ui/NoteEditActivity.java,net.micode.notes.ui,net.micode.notes.ui.NoteEditActivity,no,method,sendToDesktop,void,,824
+src/net/micode/notes/ui/NoteEditActivity.java,net.micode.notes.ui,net.micode.notes.ui.NoteEditActivity,no,method,makeShortcutIconTitle,String,String content,859
+src/net/micode/notes/ui/NoteEditActivity.java,net.micode.notes.ui,net.micode.notes.ui.NoteEditActivity,no,method,showToast,void,int resId,866
+src/net/micode/notes/ui/NoteEditActivity.java,net.micode.notes.ui,net.micode.notes.ui.NoteEditActivity,no,method,showToast,void,"int resId, int duration",870
+src/net/micode/notes/ui/NoteEditActivity.java,net.micode.notes.ui,net.micode.notes.ui.NoteEditActivity#anonymous,yes,method,onClick,void,"DialogInterface dialog, int which",521
+src/net/micode/notes/ui/NoteEditActivity.java,net.micode.notes.ui,net.micode.notes.ui.NoteEditActivity#anonymous,yes,method,OnDateTimeSet,void,"AlertDialog dialog, long date",559
+src/net/micode/notes/ui/NoteEditActivity.java,net.micode.notes.ui,net.micode.notes.ui.NoteEditActivity#anonymous,yes,method,onCheckedChanged,void,"CompoundButton buttonView, boolean isChecked",734
+src/net/micode/notes/ui/NoteEditText.java,net.micode.notes.ui,net.micode.notes.ui.NoteEditText.OnTextViewChangeListener,no,method,onEditTextDelete,void,"int index, String text",64
+src/net/micode/notes/ui/NoteEditText.java,net.micode.notes.ui,net.micode.notes.ui.NoteEditText.OnTextViewChangeListener,no,method,onEditTextEnter,void,"int index, String text",70
+src/net/micode/notes/ui/NoteEditText.java,net.micode.notes.ui,net.micode.notes.ui.NoteEditText.OnTextViewChangeListener,no,method,onTextChange,void,"int index, boolean hasText",75
+src/net/micode/notes/ui/NoteEditText.java,net.micode.notes.ui,net.micode.notes.ui.NoteEditText,no,constructor,NoteEditText,,Context context,80
+src/net/micode/notes/ui/NoteEditText.java,net.micode.notes.ui,net.micode.notes.ui.NoteEditText,no,method,setIndex,void,int index,85
+src/net/micode/notes/ui/NoteEditText.java,net.micode.notes.ui,net.micode.notes.ui.NoteEditText,no,method,setOnTextViewChangeListener,void,OnTextViewChangeListener listener,89
+src/net/micode/notes/ui/NoteEditText.java,net.micode.notes.ui,net.micode.notes.ui.NoteEditText,no,constructor,NoteEditText,,"Context context, AttributeSet attrs",93
+src/net/micode/notes/ui/NoteEditText.java,net.micode.notes.ui,net.micode.notes.ui.NoteEditText,no,constructor,NoteEditText,,"Context context, AttributeSet attrs, int defStyle",97
+src/net/micode/notes/ui/NoteEditText.java,net.micode.notes.ui,net.micode.notes.ui.NoteEditText,no,method,onTouchEvent,boolean,MotionEvent event,103
+src/net/micode/notes/ui/NoteEditText.java,net.micode.notes.ui,net.micode.notes.ui.NoteEditText,no,method,onKeyDown,boolean,"int keyCode, KeyEvent event",125
+src/net/micode/notes/ui/NoteEditText.java,net.micode.notes.ui,net.micode.notes.ui.NoteEditText,no,method,onKeyUp,boolean,"int keyCode, KeyEvent event",142
+src/net/micode/notes/ui/NoteEditText.java,net.micode.notes.ui,net.micode.notes.ui.NoteEditText,no,method,onFocusChanged,void,"boolean focused, int direction, Rect previouslyFocusedRect",171
+src/net/micode/notes/ui/NoteEditText.java,net.micode.notes.ui,net.micode.notes.ui.NoteEditText,no,method,onCreateContextMenu,void,ContextMenu menu,183
+src/net/micode/notes/ui/NoteEditText.java,net.micode.notes.ui,net.micode.notes.ui.NoteEditText#anonymous,yes,method,onMenuItemClick,boolean,MenuItem item,207
+src/net/micode/notes/ui/NoteItemData.java,net.micode.notes.ui,net.micode.notes.ui.NoteItemData,no,constructor,NoteItemData,,"Context context, Cursor cursor",79
+src/net/micode/notes/ui/NoteItemData.java,net.micode.notes.ui,net.micode.notes.ui.NoteItemData,no,method,checkPostion,void,Cursor cursor,112
+src/net/micode/notes/ui/NoteItemData.java,net.micode.notes.ui,net.micode.notes.ui.NoteItemData,no,method,isOneFollowingFolder,boolean,,137
+src/net/micode/notes/ui/NoteItemData.java,net.micode.notes.ui,net.micode.notes.ui.NoteItemData,no,method,isMultiFollowingFolder,boolean,,141
+src/net/micode/notes/ui/NoteItemData.java,net.micode.notes.ui,net.micode.notes.ui.NoteItemData,no,method,isLast,boolean,,145
+src/net/micode/notes/ui/NoteItemData.java,net.micode.notes.ui,net.micode.notes.ui.NoteItemData,no,method,getCallName,String,,149
+src/net/micode/notes/ui/NoteItemData.java,net.micode.notes.ui,net.micode.notes.ui.NoteItemData,no,method,isFirst,boolean,,153
+src/net/micode/notes/ui/NoteItemData.java,net.micode.notes.ui,net.micode.notes.ui.NoteItemData,no,method,isSingle,boolean,,157
+src/net/micode/notes/ui/NoteItemData.java,net.micode.notes.ui,net.micode.notes.ui.NoteItemData,no,method,getId,long,,161
+src/net/micode/notes/ui/NoteItemData.java,net.micode.notes.ui,net.micode.notes.ui.NoteItemData,no,method,getAlertDate,long,,165
+src/net/micode/notes/ui/NoteItemData.java,net.micode.notes.ui,net.micode.notes.ui.NoteItemData,no,method,getCreatedDate,long,,169
+src/net/micode/notes/ui/NoteItemData.java,net.micode.notes.ui,net.micode.notes.ui.NoteItemData,no,method,hasAttachment,boolean,,173
+src/net/micode/notes/ui/NoteItemData.java,net.micode.notes.ui,net.micode.notes.ui.NoteItemData,no,method,getModifiedDate,long,,177
+src/net/micode/notes/ui/NoteItemData.java,net.micode.notes.ui,net.micode.notes.ui.NoteItemData,no,method,getBgColorId,int,,181
+src/net/micode/notes/ui/NoteItemData.java,net.micode.notes.ui,net.micode.notes.ui.NoteItemData,no,method,getParentId,long,,185
+src/net/micode/notes/ui/NoteItemData.java,net.micode.notes.ui,net.micode.notes.ui.NoteItemData,no,method,getNotesCount,int,,189
+src/net/micode/notes/ui/NoteItemData.java,net.micode.notes.ui,net.micode.notes.ui.NoteItemData,no,method,getFolderId,long,,193
+src/net/micode/notes/ui/NoteItemData.java,net.micode.notes.ui,net.micode.notes.ui.NoteItemData,no,method,getType,int,,197
+src/net/micode/notes/ui/NoteItemData.java,net.micode.notes.ui,net.micode.notes.ui.NoteItemData,no,method,getWidgetType,int,,201
+src/net/micode/notes/ui/NoteItemData.java,net.micode.notes.ui,net.micode.notes.ui.NoteItemData,no,method,getWidgetId,int,,205
+src/net/micode/notes/ui/NoteItemData.java,net.micode.notes.ui,net.micode.notes.ui.NoteItemData,no,method,getSnippet,String,,209
+src/net/micode/notes/ui/NoteItemData.java,net.micode.notes.ui,net.micode.notes.ui.NoteItemData,no,method,hasAlert,boolean,,213
+src/net/micode/notes/ui/NoteItemData.java,net.micode.notes.ui,net.micode.notes.ui.NoteItemData,no,method,isCallRecord,boolean,,217
+src/net/micode/notes/ui/NoteItemData.java,net.micode.notes.ui,net.micode.notes.ui.NoteItemData,no,method,getNoteType,int,Cursor cursor,221
+src/net/micode/notes/ui/NotesListActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesListActivity,no,method,onCreate,void,Bundle savedInstanceState,139
+src/net/micode/notes/ui/NotesListActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesListActivity,no,method,onActivityResult,void,"int requestCode, int resultCode, Intent data",151
+src/net/micode/notes/ui/NotesListActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesListActivity,no,method,setAppInfoFromRawRes,void,,160
+src/net/micode/notes/ui/NotesListActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesListActivity,no,method,onStart,void,,207
+src/net/micode/notes/ui/NotesListActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesListActivity,no,method,initResources,void,,212
+src/net/micode/notes/ui/NotesListActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesListActivity.ModeCallback,no,method,onCreateActionMode,boolean,"ActionMode mode, Menu menu",239
+src/net/micode/notes/ui/NotesListActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesListActivity.ModeCallback,no,method,updateMenu,void,,272
+src/net/micode/notes/ui/NotesListActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesListActivity.ModeCallback,no,method,onPrepareActionMode,boolean,"ActionMode mode, Menu menu",289
+src/net/micode/notes/ui/NotesListActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesListActivity.ModeCallback,no,method,onActionItemClicked,boolean,"ActionMode mode, MenuItem item",294
+src/net/micode/notes/ui/NotesListActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesListActivity.ModeCallback,no,method,onDestroyActionMode,void,ActionMode mode,299
+src/net/micode/notes/ui/NotesListActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesListActivity.ModeCallback,no,method,finishActionMode,void,,305
+src/net/micode/notes/ui/NotesListActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesListActivity.ModeCallback,no,method,onItemCheckedStateChanged,void,"ActionMode mode, int position, long id, boolean checked",309
+src/net/micode/notes/ui/NotesListActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesListActivity.ModeCallback,no,method,onMenuItemClick,boolean,MenuItem item,315
+src/net/micode/notes/ui/NotesListActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesListActivity.NewNoteOnTouchListener,no,method,onTouch,boolean,"View v, MotionEvent event",351
+src/net/micode/notes/ui/NotesListActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesListActivity,no,method,startAsyncNotesListQuery,void,,411
+src/net/micode/notes/ui/NotesListActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesListActivity.BackgroundQueryHandler,no,constructor,BackgroundQueryHandler,,ContentResolver contentResolver,421
+src/net/micode/notes/ui/NotesListActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesListActivity.BackgroundQueryHandler,no,method,onQueryComplete,void,"int token, Object cookie, Cursor cursor",426
+src/net/micode/notes/ui/NotesListActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesListActivity,no,method,showFolderListMenu,void,Cursor cursor,444
+src/net/micode/notes/ui/NotesListActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesListActivity,no,method,createNewNote,void,,465
+src/net/micode/notes/ui/NotesListActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesListActivity,no,method,batchDelete,void,,472
+src/net/micode/notes/ui/NotesListActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesListActivity,no,method,deleteFolder,void,long folderId,509
+src/net/micode/notes/ui/NotesListActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesListActivity,no,method,openNode,void,NoteItemData data,536
+src/net/micode/notes/ui/NotesListActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesListActivity,no,method,openFolder,void,NoteItemData data,543
+src/net/micode/notes/ui/NotesListActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesListActivity,no,method,onClick,void,View v,560
+src/net/micode/notes/ui/NotesListActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesListActivity,no,method,showSoftInput,void,,570
+src/net/micode/notes/ui/NotesListActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesListActivity,no,method,hideSoftInput,void,View view,577
+src/net/micode/notes/ui/NotesListActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesListActivity,no,method,showCreateOrModifyFolderDialog,void,boolean create,582
+src/net/micode/notes/ui/NotesListActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesListActivity,no,method,onBackPressed,void,,668
+src/net/micode/notes/ui/NotesListActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesListActivity,no,method,updateWidget,void,"int appWidgetId, int appWidgetType",691
+src/net/micode/notes/ui/NotesListActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesListActivity,no,method,onContextMenuClosed,void,Menu menu,722
+src/net/micode/notes/ui/NotesListActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesListActivity,no,method,onContextItemSelected,boolean,MenuItem item,730
+src/net/micode/notes/ui/NotesListActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesListActivity,no,method,onPrepareOptionsMenu,boolean,Menu menu,764
+src/net/micode/notes/ui/NotesListActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesListActivity,no,method,onOptionsItemSelected,boolean,MenuItem item,782
+src/net/micode/notes/ui/NotesListActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesListActivity,no,method,onSearchRequested,boolean,,822
+src/net/micode/notes/ui/NotesListActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesListActivity,no,method,exportNoteToText,void,,827
+src/net/micode/notes/ui/NotesListActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesListActivity,no,method,isSyncMode,boolean,,869
+src/net/micode/notes/ui/NotesListActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesListActivity,no,method,startPreferenceActivity,void,,873
+src/net/micode/notes/ui/NotesListActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesListActivity.OnListItemClickListener,no,method,onItemClick,void,"AdapterView parent, View view, int position, long id",881
+src/net/micode/notes/ui/NotesListActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesListActivity,no,method,startQueryDestinationFolders,void,,920
+src/net/micode/notes/ui/NotesListActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesListActivity,no,method,onItemLongClick,boolean,"AdapterView parent, View view, int position, long id",938
+src/net/micode/notes/ui/NotesListActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesListActivity.ModeCallback#anonymous,yes,method,onMenuItemClick,boolean,MenuItem item,262
+src/net/micode/notes/ui/NotesListActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesListActivity.ModeCallback#anonymous,yes,method,onClick,void,"DialogInterface dialog, int which",331
+src/net/micode/notes/ui/NotesListActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesListActivity#anonymous,yes,method,onClick,void,"DialogInterface dialog, int which",450
+src/net/micode/notes/ui/NotesListActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesListActivity#anonymous,yes,method,doInBackground,HashSet,Void unused,474
+src/net/micode/notes/ui/NotesListActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesListActivity#anonymous,yes,method,onPostExecute,void,HashSet widgets,495
+src/net/micode/notes/ui/NotesListActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesListActivity#anonymous,yes,method,onClick,void,"DialogInterface dialog, int which",602
+src/net/micode/notes/ui/NotesListActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesListActivity#anonymous,yes,method,onClick,void,View v,610
+src/net/micode/notes/ui/NotesListActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesListActivity#anonymous,yes,method,beforeTextChanged,void,"CharSequence s, int start, int count, int after",647
+src/net/micode/notes/ui/NotesListActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesListActivity#anonymous,yes,method,onTextChanged,void,"CharSequence s, int start, int before, int count",652
+src/net/micode/notes/ui/NotesListActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesListActivity#anonymous,yes,method,afterTextChanged,void,Editable s,660
+src/net/micode/notes/ui/NotesListActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesListActivity#anonymous,yes,method,onCreateContextMenu,void,"ContextMenu menu, View v, ContextMenuInfo menuInfo",711
+src/net/micode/notes/ui/NotesListActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesListActivity#anonymous,yes,method,onClick,void,"DialogInterface dialog, int which",746
+src/net/micode/notes/ui/NotesListActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesListActivity#anonymous,yes,method,doInBackground,Integer,Void unused,832
+src/net/micode/notes/ui/NotesListActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesListActivity#anonymous,yes,method,onPostExecute,void,Integer result,837
+src/net/micode/notes/ui/NotesListAdapter.java,net.micode.notes.ui,net.micode.notes.ui.NotesListAdapter,no,constructor,NotesListAdapter,,Context context,46
+src/net/micode/notes/ui/NotesListAdapter.java,net.micode.notes.ui,net.micode.notes.ui.NotesListAdapter,no,method,newView,View,"Context context, Cursor cursor, ViewGroup parent",54
+src/net/micode/notes/ui/NotesListAdapter.java,net.micode.notes.ui,net.micode.notes.ui.NotesListAdapter,no,method,bindView,void,"View view, Context context, Cursor cursor",59
+src/net/micode/notes/ui/NotesListAdapter.java,net.micode.notes.ui,net.micode.notes.ui.NotesListAdapter,no,method,setCheckedItem,void,"int position, boolean checked",67
+src/net/micode/notes/ui/NotesListAdapter.java,net.micode.notes.ui,net.micode.notes.ui.NotesListAdapter,no,method,isInChoiceMode,boolean,,72
+src/net/micode/notes/ui/NotesListAdapter.java,net.micode.notes.ui,net.micode.notes.ui.NotesListAdapter,no,method,setChoiceMode,void,boolean mode,76
+src/net/micode/notes/ui/NotesListAdapter.java,net.micode.notes.ui,net.micode.notes.ui.NotesListAdapter,no,method,selectAll,void,boolean checked,81
+src/net/micode/notes/ui/NotesListAdapter.java,net.micode.notes.ui,net.micode.notes.ui.NotesListAdapter,no,method,getSelectedItemIds,HashSet,,92
+src/net/micode/notes/ui/NotesListAdapter.java,net.micode.notes.ui,net.micode.notes.ui.NotesListAdapter,no,method,getSelectedWidget,HashSet,,108
+src/net/micode/notes/ui/NotesListAdapter.java,net.micode.notes.ui,net.micode.notes.ui.NotesListAdapter,no,method,getSelectedCount,int,,131
+src/net/micode/notes/ui/NotesListAdapter.java,net.micode.notes.ui,net.micode.notes.ui.NotesListAdapter,no,method,isAllSelected,boolean,,146
+src/net/micode/notes/ui/NotesListAdapter.java,net.micode.notes.ui,net.micode.notes.ui.NotesListAdapter,no,method,isSelectedItem,boolean,int position,151
+src/net/micode/notes/ui/NotesListAdapter.java,net.micode.notes.ui,net.micode.notes.ui.NotesListAdapter,no,method,onContentChanged,void,,159
+src/net/micode/notes/ui/NotesListAdapter.java,net.micode.notes.ui,net.micode.notes.ui.NotesListAdapter,no,method,changeCursor,void,Cursor cursor,165
+src/net/micode/notes/ui/NotesListAdapter.java,net.micode.notes.ui,net.micode.notes.ui.NotesListAdapter,no,method,calcNotesCount,void,,170
+src/net/micode/notes/ui/NotesListItem.java,net.micode.notes.ui,net.micode.notes.ui.NotesListItem,no,constructor,NotesListItem,,Context context,41
+src/net/micode/notes/ui/NotesListItem.java,net.micode.notes.ui,net.micode.notes.ui.NotesListItem,no,method,bind,void,"Context context, NoteItemData data, boolean choiceMode, boolean checked",51
+src/net/micode/notes/ui/NotesListItem.java,net.micode.notes.ui,net.micode.notes.ui.NotesListItem,no,method,setBackground,void,NoteItemData data,102
+src/net/micode/notes/ui/NotesListItem.java,net.micode.notes.ui,net.micode.notes.ui.NotesListItem,no,method,getItemData,NoteItemData,,119
+src/net/micode/notes/ui/NotesPreferenceActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesPreferenceActivity,no,method,onCreate,void,Bundle icicle,73
+src/net/micode/notes/ui/NotesPreferenceActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesPreferenceActivity,no,method,onResume,void,,92
+src/net/micode/notes/ui/NotesPreferenceActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesPreferenceActivity,no,method,onDestroy,void,,120
+src/net/micode/notes/ui/NotesPreferenceActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesPreferenceActivity,no,method,loadAccountPreference,void,,127
+src/net/micode/notes/ui/NotesPreferenceActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesPreferenceActivity,no,method,loadSyncButton,void,,157
+src/net/micode/notes/ui/NotesPreferenceActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesPreferenceActivity,no,method,refreshUI,void,,196
+src/net/micode/notes/ui/NotesPreferenceActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesPreferenceActivity,no,method,showSelectAccountAlertDialog,void,,201
+src/net/micode/notes/ui/NotesPreferenceActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesPreferenceActivity,no,method,showChangeAccountConfirmAlertDialog,void,,257
+src/net/micode/notes/ui/NotesPreferenceActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesPreferenceActivity,no,method,getGoogleAccounts,Account[],,286
+src/net/micode/notes/ui/NotesPreferenceActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesPreferenceActivity,no,method,setSyncAccount,void,String account,291
+src/net/micode/notes/ui/NotesPreferenceActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesPreferenceActivity,no,method,removeSyncAccount,void,,321
+src/net/micode/notes/ui/NotesPreferenceActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesPreferenceActivity,no,method,getSyncAccountName,String,Context context,343
+src/net/micode/notes/ui/NotesPreferenceActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesPreferenceActivity,no,method,setLastSyncTime,void,"Context context, long time",349
+src/net/micode/notes/ui/NotesPreferenceActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesPreferenceActivity,no,method,getLastSyncTime,long,Context context,357
+src/net/micode/notes/ui/NotesPreferenceActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesPreferenceActivity.GTaskReceiver,no,method,onReceive,void,"Context context, Intent intent",366
+src/net/micode/notes/ui/NotesPreferenceActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesPreferenceActivity,no,method,onOptionsItemSelected,boolean,MenuItem item,377
+src/net/micode/notes/ui/NotesPreferenceActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesPreferenceActivity#anonymous,yes,method,onPreferenceClick,boolean,Preference preference,135
+src/net/micode/notes/ui/NotesPreferenceActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesPreferenceActivity#anonymous,yes,method,onClick,void,View v,165
+src/net/micode/notes/ui/NotesPreferenceActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesPreferenceActivity#anonymous,yes,method,onClick,void,View v,172
+src/net/micode/notes/ui/NotesPreferenceActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesPreferenceActivity#anonymous,yes,method,onClick,void,"DialogInterface dialog, int which",232
+src/net/micode/notes/ui/NotesPreferenceActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesPreferenceActivity#anonymous,yes,method,onClick,void,View v,245
+src/net/micode/notes/ui/NotesPreferenceActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesPreferenceActivity#anonymous,yes,method,onClick,void,"DialogInterface dialog, int which",274
+src/net/micode/notes/ui/NotesPreferenceActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesPreferenceActivity#anonymous,yes,method,run,void,,307
+src/net/micode/notes/ui/NotesPreferenceActivity.java,net.micode.notes.ui,net.micode.notes.ui.NotesPreferenceActivity#anonymous,yes,method,run,void,,334
+src/net/micode/notes/widget/NoteWidgetProvider.java,net.micode.notes.widget,net.micode.notes.widget.NoteWidgetProvider,no,method,onDeleted,void,"Context context, int[] appWidgetIds",49
+src/net/micode/notes/widget/NoteWidgetProvider.java,net.micode.notes.widget,net.micode.notes.widget.NoteWidgetProvider,no,method,getNoteWidgetInfo,Cursor,"Context context, int widgetId",60
+src/net/micode/notes/widget/NoteWidgetProvider.java,net.micode.notes.widget,net.micode.notes.widget.NoteWidgetProvider,no,method,update,void,"Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds",68
+src/net/micode/notes/widget/NoteWidgetProvider.java,net.micode.notes.widget,net.micode.notes.widget.NoteWidgetProvider,no,method,update,void,"Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds, boolean privacyMode",72
+src/net/micode/notes/widget/NoteWidgetProvider.java,net.micode.notes.widget,net.micode.notes.widget.NoteWidgetProvider,no,method,getBgResourceId,int,int bgId,127
+src/net/micode/notes/widget/NoteWidgetProvider.java,net.micode.notes.widget,net.micode.notes.widget.NoteWidgetProvider,no,method,getLayoutId,int,,129
+src/net/micode/notes/widget/NoteWidgetProvider.java,net.micode.notes.widget,net.micode.notes.widget.NoteWidgetProvider,no,method,getWidgetType,int,,131
+src/net/micode/notes/widget/NoteWidgetProvider_2x.java,net.micode.notes.widget,net.micode.notes.widget.NoteWidgetProvider_2x,no,method,onUpdate,void,"Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds",29
+src/net/micode/notes/widget/NoteWidgetProvider_2x.java,net.micode.notes.widget,net.micode.notes.widget.NoteWidgetProvider_2x,no,method,getLayoutId,int,,34
+src/net/micode/notes/widget/NoteWidgetProvider_2x.java,net.micode.notes.widget,net.micode.notes.widget.NoteWidgetProvider_2x,no,method,getBgResourceId,int,int bgId,39
+src/net/micode/notes/widget/NoteWidgetProvider_2x.java,net.micode.notes.widget,net.micode.notes.widget.NoteWidgetProvider_2x,no,method,getWidgetType,int,,44
+src/net/micode/notes/widget/NoteWidgetProvider_4x.java,net.micode.notes.widget,net.micode.notes.widget.NoteWidgetProvider_4x,no,method,onUpdate,void,"Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds",29
+src/net/micode/notes/widget/NoteWidgetProvider_4x.java,net.micode.notes.widget,net.micode.notes.widget.NoteWidgetProvider_4x,no,method,getLayoutId,int,,33
+src/net/micode/notes/widget/NoteWidgetProvider_4x.java,net.micode.notes.widget,net.micode.notes.widget.NoteWidgetProvider_4x,no,method,getBgResourceId,int,int bgId,38
+src/net/micode/notes/widget/NoteWidgetProvider_4x.java,net.micode.notes.widget,net.micode.notes.widget.NoteWidgetProvider_4x,no,method,getWidgetType,int,,43

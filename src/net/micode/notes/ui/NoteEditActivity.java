@@ -30,9 +30,11 @@ import android.content.SharedPreferences;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.text.Editable;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.text.format.DateUtils;
 import android.text.style.BackgroundColorSpan;
 import android.util.Log;
@@ -58,7 +60,10 @@ import net.micode.notes.data.Notes.TextNote;
 import net.micode.notes.model.WorkingNote;
 import net.micode.notes.model.WorkingNote.NoteSettingChangedListener;
 import net.micode.notes.tool.DataUtils;
+import net.micode.notes.tool.NoteTextMetrics;
+import net.micode.notes.tool.PendingIntentCompat;
 import net.micode.notes.tool.ResourceParser;
+import net.micode.notes.tool.TrashPolicy;
 import net.micode.notes.tool.ResourceParser.TextAppearanceResources;
 import net.micode.notes.ui.DateTimePickerDialog.OnDateTimeSetListener;
 import net.micode.notes.ui.NoteEditText.OnTextViewChangeListener;
@@ -72,6 +77,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
+/**
+ * 类：便签编辑页：正文、清单、提醒、分享、背景和字号。这次在标题下增加字数与清单进度。
+ */
 public class NoteEditActivity extends Activity implements OnClickListener,
         NoteSettingChangedListener, OnTextViewChangeListener {
     private class HeadViewHolder {
@@ -129,6 +137,8 @@ public class NoteEditActivity extends Activity implements OnClickListener,
     private View mFontSizeSelector;
 
     private EditText mNoteEditor;
+
+    private TextView mMetricsView;
 
     private View mNoteEditorPanel;
 
@@ -293,6 +303,7 @@ public class NoteEditActivity extends Activity implements OnClickListener,
          * is not ready
          */
         showAlertHeader();
+        refreshNoteMetrics();
     }
 
     private void showAlertHeader() {
@@ -395,6 +406,18 @@ public class NoteEditActivity extends Activity implements OnClickListener,
             mFontSizeId = ResourceParser.BG_DEFAULT_FONT_SIZE;
         }
         mEditTextList = (LinearLayout) findViewById(R.id.note_edit_list);
+        mMetricsView = (TextView) findViewById(R.id.tv_note_metrics);
+        mNoteEditor.addTextChangedListener(new TextWatcher() {
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
+            public void afterTextChanged(Editable s) {
+                refreshNoteMetrics();
+            }
+        });
     }
 
     @Override
@@ -515,7 +538,10 @@ public class NoteEditActivity extends Activity implements OnClickListener,
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle(getString(R.string.alert_title_delete));
                 builder.setIcon(android.R.drawable.ic_dialog_alert);
-                builder.setMessage(getString(R.string.alert_message_delete_note));
+                int deleteMessage = mWorkingNote.getFolderId() == Notes.ID_TRASH_FOLER
+                        ? R.string.alert_message_purge_note
+                        : R.string.alert_message_move_one_to_trash;
+                builder.setMessage(getString(deleteMessage));
                 builder.setPositiveButton(android.R.string.ok,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
@@ -595,12 +621,14 @@ public class NoteEditActivity extends Activity implements OnClickListener,
             } else {
                 Log.d(TAG, "Wrong note id, should not happen");
             }
-            if (!isSyncMode()) {
+            TrashPolicy.DeleteAction action = TrashPolicy.decide(id, mWorkingNote.getFolderId());
+            if (action == TrashPolicy.DeleteAction.PURGE) {
                 if (!DataUtils.batchDeleteNotes(getContentResolver(), ids)) {
                     Log.e(TAG, "Delete Note error");
                 }
-            } else {
-                if (!DataUtils.batchMoveToFolder(getContentResolver(), ids, Notes.ID_TRASH_FOLER)) {
+            } else if (action == TrashPolicy.DeleteAction.MOVE_TO_TRASH) {
+                if (!DataUtils.moveNotesToTrash(getContentResolver(), ids,
+                        mWorkingNote.getFolderId())) {
                     Log.e(TAG, "Move notes to trash folder error, should not happens");
                 }
             }
@@ -623,7 +651,8 @@ public class NoteEditActivity extends Activity implements OnClickListener,
         if (mWorkingNote.getNoteId() > 0) {
             Intent intent = new Intent(this, AlarmReceiver.class);
             intent.setData(ContentUris.withAppendedId(Notes.CONTENT_NOTE_URI, mWorkingNote.getNoteId()));
-            PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, intent, 0);
+            PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, intent,
+                    PendingIntentCompat.immutable());
             AlarmManager alarmManager = ((AlarmManager) getSystemService(ALARM_SERVICE));
             showAlertHeader();
             if(!set) {
@@ -670,6 +699,7 @@ public class NoteEditActivity extends Activity implements OnClickListener,
         edit.append(text);
         edit.requestFocus();
         edit.setSelection(length);
+        refreshNoteMetrics();
     }
 
     public void onEditTextEnter(int index, String text) {
@@ -689,6 +719,7 @@ public class NoteEditActivity extends Activity implements OnClickListener,
             ((NoteEditText) mEditTextList.getChildAt(i).findViewById(R.id.et_edit_text))
                     .setIndex(i);
         }
+        refreshNoteMetrics();
     }
 
     private void switchToListMode(String text) {
@@ -737,6 +768,7 @@ public class NoteEditActivity extends Activity implements OnClickListener,
                 } else {
                     edit.setPaintFlags(Paint.ANTI_ALIAS_FLAG | Paint.DEV_KERN_TEXT_FLAG);
                 }
+                refreshNoteMetrics();
             }
         });
 
@@ -766,6 +798,7 @@ public class NoteEditActivity extends Activity implements OnClickListener,
         } else {
             mEditTextList.getChildAt(index).findViewById(R.id.cb_edit_item).setVisibility(View.GONE);
         }
+        refreshNoteMetrics();
     }
 
     public void onCheckListModeChanged(int oldMode, int newMode) {
@@ -780,6 +813,54 @@ public class NoteEditActivity extends Activity implements OnClickListener,
             mEditTextList.setVisibility(View.GONE);
             mNoteEditor.setVisibility(View.VISIBLE);
         }
+        refreshNoteMetrics();
+    }
+
+    /**
+     * 按当前编辑模式取文本并刷新字数。清单模式不能只读普通编辑框，
+     * 因为各项存在独立的 NoteEditText 里，保存时才会拼回带标记的字符串。
+     */
+    private void refreshNoteMetrics() {
+        if (mMetricsView == null || mWorkingNote == null) {
+            return;
+        }
+        String text;
+        if (mWorkingNote.getCheckListMode() == TextNote.MODE_CHECK_LIST) {
+            text = collectChecklistText();
+        } else if (mNoteEditor != null && mNoteEditor.getText() != null) {
+            text = mNoteEditor.getText().toString();
+        } else {
+            text = "";
+        }
+        NoteTextMetrics.Summary summary = NoteTextMetrics.analyze(text);
+        if (summary.checklistItems > 0) {
+            mMetricsView.setText(getString(R.string.note_metrics_check, summary.codePoints,
+                    summary.checklistDone, summary.checklistItems));
+        } else {
+            mMetricsView.setText(getString(R.string.note_metrics_plain, summary.codePoints,
+                    summary.lines));
+        }
+    }
+
+    /** 拼出与 getWorkingText 相同的清单文本，但不写回 WorkingNote。 */
+    private String collectChecklistText() {
+        StringBuilder sb = new StringBuilder();
+        if (mEditTextList == null) {
+            return "";
+        }
+        for (int i = 0; i < mEditTextList.getChildCount(); i++) {
+            View view = mEditTextList.getChildAt(i);
+            NoteEditText edit = (NoteEditText) view.findViewById(R.id.et_edit_text);
+            if (edit == null || TextUtils.isEmpty(edit.getText())) {
+                continue;
+            }
+            if (((CheckBox) view.findViewById(R.id.cb_edit_item)).isChecked()) {
+                sb.append(TAG_CHECKED).append(" ").append(edit.getText()).append('\n');
+            } else {
+                sb.append(TAG_UNCHECKED).append(" ").append(edit.getText()).append('\n');
+            }
+        }
+        return sb.toString();
     }
 
     private boolean getWorkingText() {

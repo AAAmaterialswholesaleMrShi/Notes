@@ -114,6 +114,19 @@
     <string name="call_record_folder_name">通話便籤</string>
     <string name="hint_foler_name">請輸入名稱</string>
 
+    <string name="menu_trash">回收站</string>
+    <string name="menu_restore">恢復</string>
+    <string name="menu_empty_trash">清空回收站</string>
+    <string name="trash_folder_name">回收站</string>
+    <string name="alert_message_move_to_trash">確認將所選的 %d 條便簽移入回收站嗎？之後可以恢復。</string>
+    <string name="alert_message_move_one_to_trash">確認將該便簽移入回收站嗎？之後可以恢復。</string>
+    <string name="alert_message_purge_notes">確認從回收站永久刪除所選的 %d 條便簽嗎？刪除後不能恢復。</string>
+    <string name="alert_message_purge_note">確認永久刪除該便簽嗎？刪除後不能恢復。</string>
+    <string name="alert_message_empty_trash">確認清空回收站？其中的便簽會被永久刪除。</string>
+    <string name="toast_restored">已恢復 %d 條便簽</string>
+    <string name="toast_trash_emptied">回收站已清空</string>
+    <string name="note_metrics_plain">%1$d 字 · %2$d 行</string>
+    <string name="note_metrics_check">%1$d 字 · 清單 %2$d/%3$d</string>
     <string name="search_label">正在搜索便籤</string>
     <string name="search_hint">搜索便籤</string>
     <string name="search_setting_description">便籤中的文字</string>

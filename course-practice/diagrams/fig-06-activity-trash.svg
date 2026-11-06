@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="380" viewBox="0 0 980 380">
+  <rect width="100%" height="100%" fill="#f7f4ee"/>
+  <text x="32" y="36" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="20" fill="#1d2a24">图6  删除动作的活动图</text>
+  
+<defs>
+  <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+    <path d="M0,0 L8,3 L0,6 Z" fill="#8a5a2a"/>
+  </marker>
+</defs>
+<rect x="80" y="80" width="220" height="70" rx="6" fill="#fffdf8" stroke="#1f4d3a" stroke-width="1.6"/>
+<rect x="80" y="80" width="220" height="28" rx="6" fill="#1f4d3a"/>
+<rect x="80" y="96" width="220" height="12" fill="#1f4d3a"/>
+<text x="92" y="99" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="14" fill="#f7f4ee">开始</text>
+<text x="92" y="130" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="13" fill="#1d2a24">用户在列表或编辑页点删除</text><rect x="360" y="80" width="240" height="90" rx="6" fill="#fffdf8" stroke="#1f4d3a" stroke-width="1.6"/>
+<rect x="360" y="80" width="240" height="28" rx="6" fill="#1f4d3a"/>
+<rect x="360" y="96" width="240" height="12" fill="#1f4d3a"/>
+<text x="372" y="99" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="14" fill="#f7f4ee">判断</text>
+<text x="372" y="130" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="13" fill="#1d2a24">TrashPolicy.decide</text>
+<text x="372" y="148" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="13" fill="#1d2a24">父 id 是否已是 -3</text><rect x="680" y="70" width="240" height="100" rx="6" fill="#fffdf8" stroke="#1f4d3a" stroke-width="1.6"/>
+<rect x="680" y="70" width="240" height="28" rx="6" fill="#1f4d3a"/>
+<rect x="680" y="86" width="240" height="12" fill="#1f4d3a"/>
+<text x="692" y="89" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="14" fill="#f7f4ee">移入回收站</text>
+<text x="692" y="120" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="13" fill="#1d2a24">写 parent_id = -3</text>
+<text x="692" y="138" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="13" fill="#1d2a24">写 origin_parent_id</text><rect x="680" y="230" width="240" height="100" rx="6" fill="#fffdf8" stroke="#1f4d3a" stroke-width="1.6"/>
+<rect x="680" y="230" width="240" height="28" rx="6" fill="#1f4d3a"/>
+<rect x="680" y="246" width="240" height="12" fill="#1f4d3a"/>
+<text x="692" y="249" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="14" fill="#f7f4ee">物理删除</text>
+<text x="692" y="280" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="13" fill="#1d2a24">batchDeleteNotes</text>
+<text x="692" y="298" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="13" fill="#1d2a24">触发器删除 data 行</text><line x1="300" y1="115" x2="360" y2="115" stroke="#8a5a2a" stroke-width="1.4" marker-end="url(#arrow)"/><line x1="600" y1="100" x2="680" y2="110" stroke="#8a5a2a" stroke-width="1.4" marker-end="url(#arrow)"/><text x="640.0" y="99.0" text-anchor="middle" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="12" fill="#8a5a2a">否</text><line x1="600" y1="145" x2="680" y2="260" stroke="#8a5a2a" stroke-width="1.4" marker-end="url(#arrow)"/><text x="640.0" y="196.5" text-anchor="middle" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="12" fill="#8a5a2a">是</text>
+</svg>

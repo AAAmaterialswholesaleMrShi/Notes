@@ -35,6 +35,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 
+/**
+ * 类：本地 data 表中的一行与同步 JSON 之间的读写。
+ */
 public class SqlData {
     private static final String TAG = SqlData.class.getSimpleName();
 

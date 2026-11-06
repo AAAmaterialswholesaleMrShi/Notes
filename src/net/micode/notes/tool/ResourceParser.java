@@ -22,6 +22,9 @@ import android.preference.PreferenceManager;
 import net.micode.notes.R;
 import net.micode.notes.ui.NotesPreferenceActivity;
 
+/**
+ * 类：把背景色序号、字号序号映射到 drawable 和文字样式资源。
+ */
 public class ResourceParser {
 
     public static final int YELLOW           = 0;

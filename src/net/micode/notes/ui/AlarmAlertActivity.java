@@ -40,6 +40,9 @@ import net.micode.notes.tool.DataUtils;
 import java.io.IOException;
 
 
+/**
+ * 类：提醒时刻到达后弹出的界面，可以选择查看便签或关闭。
+ */
 public class AlarmAlertActivity extends Activity implements OnClickListener, OnDismissListener {
     private long mNoteId;
     private String mSnippet;

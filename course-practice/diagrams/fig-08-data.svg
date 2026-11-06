@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="590" viewBox="0 0 980 590">
+  <rect width="100%" height="100%" fill="#f7f4ee"/>
+  <text x="32" y="36" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="20" fill="#1d2a24">图8  已有表与拟新增表</text>
+  <rect x="40" y="80" width="430" height="250" rx="6" fill="#fffdf8" stroke="#1f4d3a" stroke-width="1.6"/>
+<rect x="40" y="80" width="430" height="28" rx="6" fill="#1f4d3a"/>
+<rect x="40" y="96" width="430" height="12" fill="#1f4d3a"/>
+<text x="52" y="99" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="14" fill="#f7f4ee">note  已有表，本次不新增列</text>
+<text x="52" y="130" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="13" fill="#1d2a24">_id  INTEGER  主键</text>
+<text x="52" y="148" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="13" fill="#1d2a24">parent_id  INTEGER  父文件夹，回收站为 -3</text>
+<text x="52" y="166" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="13" fill="#1d2a24">origin_parent_id  INTEGER  移入前的父 id</text>
+<text x="52" y="184" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="13" fill="#1d2a24">snippet  TEXT  列表摘要</text>
+<text x="52" y="202" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="13" fill="#1d2a24">type  INTEGER  0便签 1文件夹 2系统</text>
+<text x="52" y="220" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="13" fill="#1d2a24">alert_date, bg_color_id, widget_id, ...</text>
+<text x="52" y="238" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="13" fill="#1d2a24">created_date, modified_date, gtask_id, version</text>
+<text x="52" y="256" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="13" fill="#1d2a24">版本 5 只改触发器，列与版本 4 相同</text><rect x="500" y="80" width="430" height="210" rx="6" fill="#fffdf8" stroke="#1f4d3a" stroke-width="1.6"/>
+<rect x="500" y="80" width="430" height="28" rx="6" fill="#1f4d3a"/>
+<rect x="500" y="96" width="430" height="12" fill="#1f4d3a"/>
+<text x="512" y="99" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="14" fill="#f7f4ee">data  已有表，本次未修改</text>
+<text x="512" y="130" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="13" fill="#1d2a24">_id  INTEGER  主键</text>
+<text x="512" y="148" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="13" fill="#1d2a24">mime_type  TEXT  文本或通话</text>
+<text x="512" y="166" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="13" fill="#1d2a24">note_id  INTEGER  属于哪条 note</text>
+<text x="512" y="184" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="13" fill="#1d2a24">content  TEXT  正文</text>
+<text x="512" y="202" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="13" fill="#1d2a24">data1…data5  清单模式 / 通话号码等</text>
+<text x="512" y="220" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="13" fill="#1d2a24">created_date, modified_date</text><rect x="40" y="370" width="430" height="180" rx="6" fill="#f6efe4" stroke="#8a5a2a" stroke-width="1.6"/>
+<rect x="40" y="370" width="430" height="28" rx="6" fill="#1f4d3a"/>
+<rect x="40" y="386" width="430" height="12" fill="#1f4d3a"/>
+<text x="52" y="389" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="14" fill="#f7f4ee">note_label  拟新增，未建表</text>
+<text x="52" y="420" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="13" fill="#1d2a24">_id INTEGER 主键</text>
+<text x="52" y="438" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="13" fill="#1d2a24">name TEXT  标签名，非空</text>
+<text x="52" y="456" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="13" fill="#1d2a24">color INTEGER  颜色序号</text>
+<text x="52" y="474" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="13" fill="#1d2a24">created_date INTEGER</text>
+<text x="52" y="492" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="13" fill="#1d2a24">本次代码没有 CREATE 这张表</text><rect x="500" y="370" width="430" height="180" rx="6" fill="#f6efe4" stroke="#8a5a2a" stroke-width="1.6"/>
+<rect x="500" y="370" width="430" height="28" rx="6" fill="#1f4d3a"/>
+<rect x="500" y="386" width="430" height="12" fill="#1f4d3a"/>
+<text x="512" y="389" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="14" fill="#f7f4ee">note_label_map  拟新增，未建表</text>
+<text x="512" y="420" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="13" fill="#1d2a24">note_id INTEGER  参照 note._id</text>
+<text x="512" y="438" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="13" fill="#1d2a24">label_id INTEGER  参照 note_label._id</text>
+<text x="512" y="456" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="13" fill="#1d2a24">主键 (note_id, label_id)</text>
+<text x="512" y="474" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="13" fill="#1d2a24">一条便签可有多个标签</text>
+<text x="512" y="492" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="13" fill="#1d2a24">本次代码没有 CREATE 这张表</text>
+</svg>

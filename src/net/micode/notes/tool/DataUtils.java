@@ -29,12 +29,16 @@ import android.util.Log;
 import net.micode.notes.data.Notes;
 import net.micode.notes.data.Notes.CallNote;
 import net.micode.notes.data.Notes.NoteColumns;
+import net.micode.notes.tool.TrashPolicy.DeleteAction;
 import net.micode.notes.ui.NotesListAdapter.AppWidgetAttribute;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 
 
+/**
+ * 类：通过 ContentResolver 批量删除、移动、查询便签。移入回收站和恢复是这次新增的方法。
+ */
 public class DataUtils {
     public static final String TAG = "DataUtils";
     public static boolean batchDeleteNotes(ContentResolver resolver, HashSet<Long> ids) {
@@ -280,6 +284,149 @@ public class DataUtils {
             return snippet;
         }
         throw new IllegalArgumentException("Note is not found with id: " + noteId);
+    }
+
+    /**
+     * 方法：把便签或文件夹移入回收站，并把当前父 id 写入已有列 origin_parent_id。
+     * batchMoveToFolder 只改 parent_id，恢复时不知道原来在哪个文件夹，所以删除改走这里。
+     * 系统文件夹会被 TrashPolicy 拒绝，不会写入。
+     */
+    public static boolean moveNotesToTrash(ContentResolver resolver, HashSet<Long> ids,
+            long currentParentId) {
+        if (ids == null || ids.size() == 0) {
+            return true;
+        }
+        ArrayList<ContentProviderOperation> operationList = new ArrayList<ContentProviderOperation>();
+        for (long id : ids) {
+            /* 关键语句：已经在回收站或属于系统文件夹的 id 不在这一批里改父 id。 */
+            if (TrashPolicy.decide(id, currentParentId) != DeleteAction.MOVE_TO_TRASH) {
+                Log.e(TAG, "Skip id that should not move to trash: " + id);
+                continue;
+            }
+            ContentProviderOperation.Builder builder = ContentProviderOperation
+                    .newUpdate(ContentUris.withAppendedId(Notes.CONTENT_NOTE_URI, id));
+            builder.withValue(NoteColumns.PARENT_ID, Notes.ID_TRASH_FOLER);
+            builder.withValue(NoteColumns.ORIGIN_PARENT_ID, currentParentId);
+            builder.withValue(NoteColumns.LOCAL_MODIFIED, 1);
+            operationList.add(builder.build());
+        }
+        if (operationList.isEmpty()) {
+            return true;
+        }
+        return applyBatch(resolver, operationList, "move to trash", ids);
+    }
+
+    /**
+     * 方法：按 origin_parent_id 把回收站中的便签移回原文件夹。
+     * 原文件夹若不存在，TrashPolicy 会改回根目录。恢复后把 origin_parent_id 写回 0。
+     */
+    public static boolean restoreNotesFromTrash(ContentResolver resolver, HashSet<Long> ids) {
+        if (ids == null || ids.size() == 0) {
+            return true;
+        }
+        ArrayList<ContentProviderOperation> operationList = new ArrayList<ContentProviderOperation>();
+        for (long id : ids) {
+            long origin = queryOriginParentId(resolver, id);
+            boolean originExists = originFolderStillExists(resolver, origin);
+            long target = TrashPolicy.restoreParent(origin, originExists);
+            ContentProviderOperation.Builder builder = ContentProviderOperation
+                    .newUpdate(ContentUris.withAppendedId(Notes.CONTENT_NOTE_URI, id));
+            builder.withValue(NoteColumns.PARENT_ID, target);
+            builder.withValue(NoteColumns.ORIGIN_PARENT_ID, 0);
+            builder.withValue(NoteColumns.LOCAL_MODIFIED, 1);
+            operationList.add(builder.build());
+        }
+        return applyBatch(resolver, operationList, "restore from trash", ids);
+    }
+
+    /**
+     * 方法：查出某个父文件夹下的全部 note._id，供清空回收站使用。
+     * 不清系统文件夹本身，因为系统文件夹的 parent 不是回收站。
+     */
+    public static HashSet<Long> queryNoteIdsByParent(ContentResolver resolver, long parentId) {
+        HashSet<Long> ids = new HashSet<Long>();
+        Cursor cursor = resolver.query(Notes.CONTENT_NOTE_URI,
+                new String[] { NoteColumns.ID },
+                NoteColumns.PARENT_ID + "=?",
+                new String[] { String.valueOf(parentId) },
+                null);
+        if (cursor != null) {
+            try {
+                while (cursor.moveToNext()) {
+                    ids.add(cursor.getLong(0));
+                }
+            } finally {
+                cursor.close();
+            }
+        }
+        return ids;
+    }
+
+    /**
+     * 方法：读取已有列 origin_parent_id。行不存在时返回 0，随后会被恢复到根目录。
+     */
+    public static long queryOriginParentId(ContentResolver resolver, long noteId) {
+        Cursor cursor = resolver.query(ContentUris.withAppendedId(Notes.CONTENT_NOTE_URI, noteId),
+                new String[] { NoteColumns.ORIGIN_PARENT_ID }, null, null, null);
+        long origin = 0L;
+        if (cursor != null) {
+            try {
+                if (cursor.moveToFirst() && !cursor.isNull(0)) {
+                    origin = cursor.getLong(0);
+                }
+            } finally {
+                cursor.close();
+            }
+        }
+        return origin;
+    }
+
+    /**
+     * 方法：判断恢复目标是否还在回收站外面。
+     * 根目录和通话文件夹没有普通的“被删除”状态，直接视为存在。
+     * 用户文件夹必须仍是 folder 或 system，并且父 id 不是回收站。
+     */
+    public static boolean originFolderStillExists(ContentResolver resolver, long folderId) {
+        if (folderId == Notes.ID_ROOT_FOLDER || folderId == Notes.ID_CALL_RECORD_FOLDER) {
+            return true;
+        }
+        if (folderId == Notes.ID_TRASH_FOLER || folderId == Notes.ID_TEMPARAY_FOLDER) {
+            return false;
+        }
+        Cursor cursor = resolver.query(ContentUris.withAppendedId(Notes.CONTENT_NOTE_URI, folderId),
+                new String[] { NoteColumns.TYPE, NoteColumns.PARENT_ID }, null, null, null);
+        boolean exists = false;
+        if (cursor != null) {
+            try {
+                if (cursor.moveToFirst()) {
+                    int type = cursor.getInt(0);
+                    long parent = cursor.getLong(1);
+                    exists = parent != Notes.ID_TRASH_FOLER
+                            && (type == Notes.TYPE_FOLDER || type == Notes.TYPE_SYSTEM);
+                }
+            } finally {
+                cursor.close();
+            }
+        }
+        return exists;
+    }
+
+    /** 语句块：新的批量更新共用这一处 applyBatch，原来的删除和移动方法保持原样。 */
+    private static boolean applyBatch(ContentResolver resolver,
+            ArrayList<ContentProviderOperation> operationList, String action, HashSet<Long> ids) {
+        try {
+            ContentProviderResult[] results = resolver.applyBatch(Notes.AUTHORITY, operationList);
+            if (results == null || results.length == 0 || results[0] == null) {
+                Log.d(TAG, action + " failed, ids:" + ids.toString());
+                return false;
+            }
+            return true;
+        } catch (RemoteException e) {
+            Log.e(TAG, String.format("%s: %s", e.toString(), e.getMessage()));
+        } catch (OperationApplicationException e) {
+            Log.e(TAG, String.format("%s: %s", e.toString(), e.getMessage()));
+        }
+        return false;
     }
 
     public static String getFormattedSnippet(String snippet) {

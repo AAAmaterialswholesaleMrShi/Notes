@@ -24,6 +24,12 @@
         android:showAsAction="always|withText" />
 
     <item
+        android:id="@+id/restore"
+        android:title="@string/menu_restore"
+        android:showAsAction="always|withText"
+        android:visible="false" />
+
+    <item
         android:id="@+id/delete"
         android:title="@string/menu_delete"
         android:icon="@drawable/menu_delete"

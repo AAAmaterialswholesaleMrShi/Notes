@@ -48,6 +48,9 @@ import java.util.Iterator;
 import java.util.Map;
 
 
+/**
+ * 类：编排一次完整同步：登录、拉取远端列表、合并本地 note/data。
+ */
 public class GTaskManager {
     private static final String TAG = GTaskManager.class.getSimpleName();
 

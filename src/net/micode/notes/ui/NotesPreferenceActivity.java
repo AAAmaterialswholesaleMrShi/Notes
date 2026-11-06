@@ -48,6 +48,9 @@ import net.micode.notes.data.Notes.NoteColumns;
 import net.micode.notes.gtask.remote.GTaskSyncService;
 
 
+/**
+ * 类：设置页。保存同步账号、上次同步时间和新建便签是否随机背景。
+ */
 public class NotesPreferenceActivity extends PreferenceActivity {
     public static final String PREFERENCE_NAME = "notes_preferences";
 

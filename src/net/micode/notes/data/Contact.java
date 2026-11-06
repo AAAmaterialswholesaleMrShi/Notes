@@ -25,6 +25,9 @@ import android.util.Log;
 
 import java.util.HashMap;
 
+/**
+ * 类：按电话号码查询联系人显示名，并在进程内缓存，供通话便签列表使用。
+ */
 public class Contact {
     private static HashMap<String, String> sContactCache;
     private static final String TAG = "Contact";

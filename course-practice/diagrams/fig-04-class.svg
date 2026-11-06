@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="540" viewBox="0 0 980 540">
+  <rect width="100%" height="100%" fill="#f7f4ee"/>
+  <text x="32" y="36" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="20" fill="#1d2a24">图4  本次改动涉及的类</text>
+  <rect x="40" y="80" width="280" height="150" rx="6" fill="#fffdf8" stroke="#1f4d3a" stroke-width="1.6"/>
+<rect x="40" y="80" width="280" height="28" rx="6" fill="#1f4d3a"/>
+<rect x="40" y="96" width="280" height="12" fill="#1f4d3a"/>
+<text x="52" y="99" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="14" fill="#f7f4ee">NoteTextMetrics  本次新增</text>
+<text x="52" y="130" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="13" fill="#1d2a24">+ analyze(String): Summary</text>
+<text x="52" y="148" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="13" fill="#1d2a24">+ splitLines(String): String[]</text>
+<text x="52" y="166" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="13" fill="#1d2a24">不保存数据</text><rect x="360" y="80" width="280" height="170" rx="6" fill="#fffdf8" stroke="#1f4d3a" stroke-width="1.6"/>
+<rect x="360" y="80" width="280" height="28" rx="6" fill="#1f4d3a"/>
+<rect x="360" y="96" width="280" height="12" fill="#1f4d3a"/>
+<text x="372" y="99" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="14" fill="#f7f4ee">TrashPolicy  本次新增</text>
+<text x="372" y="130" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="13" fill="#1d2a24">+ decide(id, parent): DeleteAction</text>
+<text x="372" y="148" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="13" fill="#1d2a24">+ restoreParent(origin, exists): long</text>
+<text x="372" y="166" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="13" fill="#1d2a24">常量与 Notes 的系统文件夹 id 相同</text><rect x="680" y="80" width="250" height="190" rx="6" fill="#fffdf8" stroke="#1f4d3a" stroke-width="1.6"/>
+<rect x="680" y="80" width="250" height="28" rx="6" fill="#1f4d3a"/>
+<rect x="680" y="96" width="250" height="12" fill="#1f4d3a"/>
+<text x="692" y="99" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="14" fill="#f7f4ee">DataUtils  原有类，新增方法</text>
+<text x="692" y="130" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="13" fill="#1d2a24">+ moveNotesToTrash(...)</text>
+<text x="692" y="148" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="13" fill="#1d2a24">+ restoreNotesFromTrash(...)</text>
+<text x="692" y="166" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="13" fill="#1d2a24">+ queryNoteIdsByParent(...)</text>
+<text x="692" y="184" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="13" fill="#1d2a24">原有 batchDeleteNotes 仍负责物理删除</text><rect x="40" y="320" width="280" height="150" rx="6" fill="#fffdf8" stroke="#1f4d3a" stroke-width="1.6"/>
+<rect x="40" y="320" width="280" height="28" rx="6" fill="#1f4d3a"/>
+<rect x="40" y="336" width="280" height="12" fill="#1f4d3a"/>
+<text x="52" y="339" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="14" fill="#f7f4ee">NoteEditActivity  原有界面</text>
+<text x="52" y="370" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="13" fill="#1d2a24">调用 NoteTextMetrics</text>
+<text x="52" y="388" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="13" fill="#1d2a24">删除时调用 TrashPolicy</text>
+<text x="52" y="406" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="13" fill="#1d2a24">字数只显示，不入库</text><rect x="360" y="320" width="280" height="150" rx="6" fill="#fffdf8" stroke="#1f4d3a" stroke-width="1.6"/>
+<rect x="360" y="320" width="280" height="28" rx="6" fill="#1f4d3a"/>
+<rect x="360" y="336" width="280" height="12" fill="#1f4d3a"/>
+<text x="372" y="339" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="14" fill="#f7f4ee">NotesListActivity  原有界面</text>
+<text x="372" y="370" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="13" fill="#1d2a24">菜单进入回收站 id=-3</text>
+<text x="372" y="388" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="13" fill="#1d2a24">普通删除改为移入回收站</text>
+<text x="372" y="406" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="13" fill="#1d2a24">回收站内可恢复或清空</text><rect x="680" y="320" width="250" height="170" rx="6" fill="#fffdf8" stroke="#1f4d3a" stroke-width="1.6"/>
+<rect x="680" y="320" width="250" height="28" rx="6" fill="#1f4d3a"/>
+<rect x="680" y="336" width="250" height="12" fill="#1f4d3a"/>
+<text x="692" y="339" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="14" fill="#f7f4ee">NotesDatabaseHelper</text>
+<text x="692" y="370" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="13" fill="#1d2a24">已有表 note、data</text>
+<text x="692" y="388" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="13" fill="#1d2a24">版本 4 → 5</text>
+<text x="692" y="406" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="13" fill="#1d2a24">只重建 folder_move_notes_on_trash</text>
+<text x="692" y="424" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="13" fill="#1d2a24">不新增表或列</text>
+</svg>

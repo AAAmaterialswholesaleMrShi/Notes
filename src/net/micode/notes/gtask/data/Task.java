@@ -32,6 +32,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 
+/**
+ * 类：一条 Google Tasks 任务，对应便签正文或清单项。
+ */
 public class Task extends Node {
     private static final String TAG = Task.class.getSimpleName();
 

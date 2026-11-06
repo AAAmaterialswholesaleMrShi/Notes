@@ -61,6 +61,9 @@ import java.util.zip.Inflater;
 import java.util.zip.InflaterInputStream;
 
 
+/**
+ * 类：用 Apache HttpClient 访问已经停用的 Google Tasks 私有接口。不同步时不会执行。
+ */
 public class GTaskClient {
     private static final String TAG = GTaskClient.class.getSimpleName();
 

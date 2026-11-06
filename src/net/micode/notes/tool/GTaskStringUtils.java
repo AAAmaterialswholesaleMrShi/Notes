@@ -16,6 +16,9 @@
 
 package net.micode.notes.tool;
 
+/**
+ * 类：Google Tasks JSON 字段名常量，没有业务逻辑。
+ */
 public class GTaskStringUtils {
 
     public final static String GTASK_JSON_ACTION_ID = "action_id";

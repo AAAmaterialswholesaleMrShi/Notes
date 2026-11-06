@@ -20,6 +20,9 @@ import android.database.Cursor;
 
 import org.json.JSONObject;
 
+/**
+ * 类：Google Tasks 同步树的抽象节点，持有名称、子节点和 JSON 序列化入口。
+ */
 public abstract class Node {
     public static final int SYNC_ACTION_NONE = 0;
 

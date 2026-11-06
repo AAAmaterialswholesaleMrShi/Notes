@@ -38,6 +38,9 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 
+/**
+ * 类：本地 note 表中的一条便签或文件夹与 GTask 任务之间的映射。
+ */
 public class SqlNote {
     private static final String TAG = SqlNote.class.getSimpleName();
 

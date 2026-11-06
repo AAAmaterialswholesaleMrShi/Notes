@@ -31,6 +31,9 @@ import java.util.HashSet;
 import java.util.Iterator;
 
 
+/**
+ * 类：主列表的 CursorAdapter，并记录多选时勾中的行。
+ */
 public class NotesListAdapter extends CursorAdapter {
     private static final String TAG = "NotesListAdapter";
     private Context mContext;

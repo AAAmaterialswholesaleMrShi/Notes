@@ -34,6 +34,9 @@ import net.micode.notes.data.Notes.TextNote;
 import java.util.ArrayList;
 
 
+/**
+ * 类：已经落库的便签差异模型，把 note 与 data 的改动打成 ContentProvider 批量操作。
+ */
 public class Note {
     private ContentValues mNoteDiffValues;
     private NoteData mNoteData;

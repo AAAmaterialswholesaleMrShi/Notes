@@ -27,10 +27,19 @@ import net.micode.notes.data.Notes.DataConstants;
 import net.micode.notes.data.Notes.NoteColumns;
 
 
+/**
+ * 类：创建并升级 note.db。现有用户表只有 note 和 data；版本 5 只重建触发器，不新增表。
+ */
 public class NotesDatabaseHelper extends SQLiteOpenHelper {
     private static final String DB_NAME = "note.db";
 
-    private static final int DB_VERSION = 4;
+    /**
+     * 版本 4 是上游社区版的最后一版，只给 note 表增加 version 列。
+     * 版本 5 不新增表、不新增列，只重建 note 表触发器：
+     * 文件夹被移入回收站时，一并把子便签的 origin_parent_id 写成该文件夹的 id，
+     * 这样子便签以后可以按原文件夹恢复。已有列 origin_parent_id 在版本 4 的建表语句里就存在。
+     */
+    private static final int DB_VERSION = 5;
 
     public interface TABLE {
         public static final String NOTE = "note";
@@ -202,7 +211,8 @@ public class NotesDatabaseHelper extends SQLiteOpenHelper {
         " WHEN new." + NoteColumns.PARENT_ID + "=" + Notes.ID_TRASH_FOLER +
         " BEGIN" +
         "  UPDATE " + TABLE.NOTE +
-        "   SET " + NoteColumns.PARENT_ID + "=" + Notes.ID_TRASH_FOLER +
+        "   SET " + NoteColumns.PARENT_ID + "=" + Notes.ID_TRASH_FOLER + "," +
+        "       " + NoteColumns.ORIGIN_PARENT_ID + "=old." + NoteColumns.ID +
         "  WHERE " + NoteColumns.PARENT_ID + "=old." + NoteColumns.ID + ";" +
         " END";
 
@@ -322,6 +332,11 @@ public class NotesDatabaseHelper extends SQLiteOpenHelper {
             oldVersion++;
         }
 
+        if (oldVersion == 4) {
+            upgradeToV5(db);
+            oldVersion++;
+        }
+
         if (reCreateTriggers) {
             reCreateNoteTableTriggers(db);
             reCreateDataTableTriggers(db);
@@ -358,5 +373,12 @@ public class NotesDatabaseHelper extends SQLiteOpenHelper {
     private void upgradeToV4(SQLiteDatabase db) {
         db.execSQL("ALTER TABLE " + TABLE.NOTE + " ADD COLUMN " + NoteColumns.VERSION
                 + " INTEGER NOT NULL DEFAULT 0");
+    }
+
+    /**
+     * 版本 5 只重建触发器。不 DROP 用户数据，也不 ALTER TABLE。
+     */
+    private void upgradeToV5(SQLiteDatabase db) {
+        reCreateNoteTableTriggers(db);
     }
 }

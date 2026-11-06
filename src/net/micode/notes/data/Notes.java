@@ -17,6 +17,9 @@
 package net.micode.notes.data;
 
 import android.net.Uri;
+/**
+ * 类：便签的权威常量：ContentProvider 的 authority、系统文件夹 id、note/data 列名，以及文本便签和通话便签的 MIME。
+ */
 public class Notes {
     public static final String AUTHORITY = "micode_notes";
     public static final String TAG = "Notes";
@@ -33,6 +36,7 @@ public class Notes {
     public static final int ID_ROOT_FOLDER = 0;
     public static final int ID_TEMPARAY_FOLDER = -1;
     public static final int ID_CALL_RECORD_FOLDER = -2;
+    /** 回收站。TrashPolicy.TRASH_FOLDER_ID 必须等于这个值。源码原拼写 FOLER 保持不动。 */
     public static final int ID_TRASH_FOLER = -3;
 
     public static final String INTENT_EXTRA_ALERT_DATE = "net.micode.notes.alert_date";

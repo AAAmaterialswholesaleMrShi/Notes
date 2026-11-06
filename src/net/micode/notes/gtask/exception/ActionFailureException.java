@@ -16,6 +16,9 @@
 
 package net.micode.notes.gtask.exception;
 
+/**
+ * 类：同步动作被服务端拒绝或本地数据不完整时抛出的运行时异常。
+ */
 public class ActionFailureException extends RuntimeException {
     private static final long serialVersionUID = 4425249765923293627L;
 

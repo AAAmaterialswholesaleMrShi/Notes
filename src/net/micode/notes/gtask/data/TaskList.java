@@ -30,6 +30,9 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 
+/**
+ * 类：一个 Google Tasks 列表，对应本地文件夹。
+ */
 public class TaskList extends Node {
     private static final String TAG = TaskList.class.getSimpleName();
 

@@ -25,6 +25,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 
+/**
+ * 类：同步用的元数据任务，继承 Task，用来在 Google Tasks 侧保存本地同步状态。
+ */
 public class MetaData extends Task {
     private final static String TAG = MetaData.class.getSimpleName();
 

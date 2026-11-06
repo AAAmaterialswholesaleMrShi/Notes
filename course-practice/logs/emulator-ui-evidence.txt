@@ -1,0 +1,28 @@
+设备：emulator-5554，系统映像 system-images;android-34;aosp_atd;x86_64。
+启动日志写明 Boot completed in 22438 ms。
+screencap 得到的 1080x1920 图片每个像素都是黑色。uiautomator 层次和 run-as 读出的 note.db 有效，截图不能当作界面证据。
+
+已安装 course-practice/dist/notes-debug.apk，包名 net.micode.notes。
+PRAGMA user_version = 5。
+sqlite_master 里的用户表只有 note 和 data，没有 note_label。
+系统行 id 为 -3、-2、-1、0。介绍便签 id=1，snippet 以 Welcome to use MIUI notes! 开头。
+设备上的触发器 folder_move_notes_on_trash 包含 origin_parent_id=old._id。
+
+编辑页层次文本：
+- 11/6/2026, 8:33 AM
+- 26 chars · 1 lines
+- Welcome to use MIUI notes!
+“Welcome to use MIUI notes!” 的码点是 26，一行，与界面字符串一致。模拟器语言是英文，所以不是中文“字”。
+
+编辑菜单层次文本：Add note, Delete, Font size, Enter check list, Share, Send to home, Remind me。
+点击 Delete 后对话框文本：
+- Delete selected notes
+- Move this note to trash? You can restore it later.
+- Cancel
+- OK
+点击 OK 之后，id=1 的 parent_id=-3，origin_parent_id=0。0 与根文件夹 id 相同，符合“原来就在根目录”。
+
+列表菜单层次文本：New Folder, Export text, Sync, Settings, Trash, Search。
+进入 Trash 后标题为 Trash，列表里仍是这条介绍便签。
+长按后出现 resource-id 为 restore 的按钮，文字 RESTORE，以及 content-desc 为 Delete 的按钮。
+多次 adb tap 落在该按钮边界内，parent_id 仍是 -3。恢复点击没有在模拟器上生效，不能写成已经点通恢复。

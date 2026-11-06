@@ -30,6 +30,9 @@ import net.micode.notes.tool.DataUtils;
 import net.micode.notes.tool.ResourceParser.NoteItemBgResources;
 
 
+/**
+ * 类：列表单行视图，按便签或文件夹、背景色和提醒状态选择背景。
+ */
 public class NotesListItem extends LinearLayout {
     private ImageView mAlert;
     private TextView mTitle;
