@@ -68,6 +68,7 @@ import net.micode.notes.model.WorkingNote;
 import net.micode.notes.tool.BackupUtils;
 import net.micode.notes.tool.DataUtils;
 import net.micode.notes.tool.ResourceParser;
+import net.micode.notes.tool.TrashPolicy;
 import net.micode.notes.ui.NotesListAdapter.AppWidgetAttribute;
 import net.micode.notes.widget.NoteWidgetProvider_2x;
 import net.micode.notes.widget.NoteWidgetProvider_4x;
@@ -78,6 +79,9 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.HashSet;
 
+/**
+ * 类：便签主列表。管理文件夹、多选、搜索和导出。这次增加回收站入口，删除改为先移入回收站。
+ */
 public class NotesListActivity extends Activity implements OnClickListener, OnItemLongClickListener {
     private static final int FOLDER_NOTE_LIST_QUERY_TOKEN = 0;
 
@@ -92,7 +96,7 @@ public class NotesListActivity extends Activity implements OnClickListener, OnIt
     private static final String PREFERENCE_ADD_INTRODUCTION = "net.micode.notes.introduction";
 
     private enum ListEditState {
-        NOTE_LIST, SUB_FOLDER, CALL_RECORD_FOLDER
+        NOTE_LIST, SUB_FOLDER, CALL_RECORD_FOLDER, TRASH_FOLDER
     };
 
     private ListEditState mState;
@@ -240,12 +244,20 @@ public class NotesListActivity extends Activity implements OnClickListener, OnIt
             getMenuInflater().inflate(R.menu.note_list_options, menu);
             menu.findItem(R.id.delete).setOnMenuItemClickListener(this);
             mMoveMenu = menu.findItem(R.id.move);
-            if (mFocusNoteDataItem.getParentId() == Notes.ID_CALL_RECORD_FOLDER
+            MenuItem restoreMenu = menu.findItem(R.id.restore);
+            if (mState == ListEditState.TRASH_FOLDER) {
+                /* 回收站里“移动”没有意义，改成恢复。删除在这里表示永久删除。 */
+                mMoveMenu.setVisible(false);
+                restoreMenu.setVisible(true);
+                restoreMenu.setOnMenuItemClickListener(this);
+            } else if (mFocusNoteDataItem.getParentId() == Notes.ID_CALL_RECORD_FOLDER
                     || DataUtils.getUserFolderCount(mContentResolver) == 0) {
                 mMoveMenu.setVisible(false);
+                restoreMenu.setVisible(false);
             } else {
                 mMoveMenu.setVisible(true);
                 mMoveMenu.setOnMenuItemClickListener(this);
+                restoreMenu.setVisible(false);
             }
             mActionMode = mode;
             mNotesListAdapter.setChoiceMode(true);
@@ -299,7 +311,12 @@ public class NotesListActivity extends Activity implements OnClickListener, OnIt
         public void onDestroyActionMode(ActionMode mode) {
             mNotesListAdapter.setChoiceMode(false);
             mNotesListView.setLongClickable(true);
-            mAddNewNote.setVisibility(View.VISIBLE);
+            if (mState == ListEditState.TRASH_FOLDER
+                    || mState == ListEditState.CALL_RECORD_FOLDER) {
+                mAddNewNote.setVisibility(View.GONE);
+            } else {
+                mAddNewNote.setVisibility(View.VISIBLE);
+            }
         }
 
         public void finishActionMode() {
@@ -324,7 +341,10 @@ public class NotesListActivity extends Activity implements OnClickListener, OnIt
                     AlertDialog.Builder builder = new AlertDialog.Builder(NotesListActivity.this);
                     builder.setTitle(getString(R.string.alert_title_delete));
                     builder.setIcon(android.R.drawable.ic_dialog_alert);
-                    builder.setMessage(getString(R.string.alert_message_delete_notes,
+                    int deleteMessage = mState == ListEditState.TRASH_FOLDER
+                            ? R.string.alert_message_purge_notes
+                            : R.string.alert_message_move_to_trash;
+                    builder.setMessage(getString(deleteMessage,
                                              mNotesListAdapter.getSelectedCount()));
                     builder.setPositiveButton(android.R.string.ok,
                                              new DialogInterface.OnClickListener() {
@@ -338,6 +358,9 @@ public class NotesListActivity extends Activity implements OnClickListener, OnIt
                     break;
                 case R.id.move:
                     startQueryDestinationFolders();
+                    break;
+                case R.id.restore:
+                    restoreSelectedNotes();
                     break;
                 default:
                     return false;
@@ -463,6 +486,9 @@ public class NotesListActivity extends Activity implements OnClickListener, OnIt
     }
 
     private void createNewNote() {
+        if (mState == ListEditState.TRASH_FOLDER) {
+            return;
+        }
         Intent intent = new Intent(this, NoteEditActivity.class);
         intent.setAction(Intent.ACTION_INSERT_OR_EDIT);
         intent.putExtra(Notes.INTENT_EXTRA_FOLDER_ID, mCurrentFolderId);
@@ -473,20 +499,19 @@ public class NotesListActivity extends Activity implements OnClickListener, OnIt
         new AsyncTask<Void, Void, HashSet<AppWidgetAttribute>>() {
             protected HashSet<AppWidgetAttribute> doInBackground(Void... unused) {
                 HashSet<AppWidgetAttribute> widgets = mNotesListAdapter.getSelectedWidget();
-                if (!isSyncMode()) {
-                    // if not synced, delete notes directly
-                    if (DataUtils.batchDeleteNotes(mContentResolver, mNotesListAdapter
-                            .getSelectedItemIds())) {
-                    } else {
-                        Log.e(TAG, "Delete notes error, should not happens");
-                    }
+                HashSet<Long> ids = mNotesListAdapter.getSelectedItemIds();
+                /*
+                 * 原来只有设置了同步账号才移入回收站，否则直接物理删除，界面上也进不了回收站。
+                 * 现在不论是否同步，普通列表都先移入回收站；已经在回收站里才物理删除。
+                 */
+                boolean deleted;
+                if (mCurrentFolderId == Notes.ID_TRASH_FOLER) {
+                    deleted = DataUtils.batchDeleteNotes(mContentResolver, ids);
                 } else {
-                    // in sync mode, we'll move the deleted note into the trash
-                    // folder
-                    if (!DataUtils.batchMoveToFolder(mContentResolver, mNotesListAdapter
-                            .getSelectedItemIds(), Notes.ID_TRASH_FOLER)) {
-                        Log.e(TAG, "Move notes to trash folder error, should not happens");
-                    }
+                    deleted = DataUtils.moveNotesToTrash(mContentResolver, ids, mCurrentFolderId);
+                }
+                if (!deleted) {
+                    Log.e(TAG, "Delete or trash notes error, should not happens");
                 }
                 return widgets;
             }
@@ -516,12 +541,14 @@ public class NotesListActivity extends Activity implements OnClickListener, OnIt
         ids.add(folderId);
         HashSet<AppWidgetAttribute> widgets = DataUtils.getFolderNoteWidget(mContentResolver,
                 folderId);
-        if (!isSyncMode()) {
-            // if not synced, delete folder directly
+        TrashPolicy.DeleteAction action = TrashPolicy.decide(folderId, mCurrentFolderId);
+        if (action == TrashPolicy.DeleteAction.REJECT) {
+            Log.e(TAG, "Refuse to delete system folder " + folderId);
+            return;
+        } else if (action == TrashPolicy.DeleteAction.PURGE) {
             DataUtils.batchDeleteNotes(mContentResolver, ids);
         } else {
-            // in sync mode, we'll move the deleted folder into the trash folder
-            DataUtils.batchMoveToFolder(mContentResolver, ids, Notes.ID_TRASH_FOLER);
+            DataUtils.moveNotesToTrash(mContentResolver, ids, mCurrentFolderId);
         }
         if (widgets != null) {
             for (AppWidgetAttribute widget : widgets) {
@@ -674,6 +701,7 @@ public class NotesListActivity extends Activity implements OnClickListener, OnIt
                 mTitleBar.setVisibility(View.GONE);
                 break;
             case CALL_RECORD_FOLDER:
+            case TRASH_FOLDER:
                 mCurrentFolderId = Notes.ID_ROOT_FOLDER;
                 mState = ListEditState.NOTE_LIST;
                 mAddNewNote.setVisibility(View.VISIBLE);
@@ -772,6 +800,8 @@ public class NotesListActivity extends Activity implements OnClickListener, OnIt
             getMenuInflater().inflate(R.menu.sub_folder, menu);
         } else if (mState == ListEditState.CALL_RECORD_FOLDER) {
             getMenuInflater().inflate(R.menu.call_record_folder, menu);
+        } else if (mState == ListEditState.TRASH_FOLDER) {
+            getMenuInflater().inflate(R.menu.trash_folder, menu);
         } else {
             Log.e(TAG, "Wrong state:" + mState);
         }
@@ -812,6 +842,12 @@ public class NotesListActivity extends Activity implements OnClickListener, OnIt
             case R.id.menu_search:
                 onSearchRequested();
                 break;
+            case R.id.menu_trash:
+                openTrashFolder();
+                break;
+            case R.id.menu_empty_trash:
+                confirmEmptyTrash();
+                break;
             default:
                 break;
         }
@@ -822,6 +858,44 @@ public class NotesListActivity extends Activity implements OnClickListener, OnIt
     public boolean onSearchRequested() {
         startSearch(null, false, null /* appData */, false);
         return true;
+    }
+
+    /** 打开已有的系统回收站文件夹。回收站不是新建表，id 仍是 Notes.ID_TRASH_FOLER。 */
+    private void openTrashFolder() {
+        mCurrentFolderId = Notes.ID_TRASH_FOLER;
+        mState = ListEditState.TRASH_FOLDER;
+        mAddNewNote.setVisibility(View.GONE);
+        mTitleBar.setText(R.string.trash_folder_name);
+        mTitleBar.setVisibility(View.VISIBLE);
+        startAsyncNotesListQuery();
+    }
+
+    private void restoreSelectedNotes() {
+        int count = mNotesListAdapter.getSelectedCount();
+        if (DataUtils.restoreNotesFromTrash(mContentResolver, mNotesListAdapter.getSelectedItemIds())) {
+            Toast.makeText(this, getString(R.string.toast_restored, count), Toast.LENGTH_SHORT).show();
+        }
+        mModeCallBack.finishActionMode();
+    }
+
+    private void confirmEmptyTrash() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.menu_empty_trash);
+        builder.setIcon(android.R.drawable.ic_dialog_alert);
+        builder.setMessage(R.string.alert_message_empty_trash);
+        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                HashSet<Long> ids = DataUtils.queryNoteIdsByParent(mContentResolver,
+                        Notes.ID_TRASH_FOLER);
+                if (DataUtils.batchDeleteNotes(mContentResolver, ids)) {
+                    Toast.makeText(NotesListActivity.this, R.string.toast_trash_emptied,
+                            Toast.LENGTH_SHORT).show();
+                }
+                startAsyncNotesListQuery();
+            }
+        });
+        builder.setNegativeButton(android.R.string.cancel, null);
+        builder.show();
     }
 
     private void exportNoteToText() {

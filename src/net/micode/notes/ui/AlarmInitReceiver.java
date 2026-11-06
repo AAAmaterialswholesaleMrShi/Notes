@@ -26,8 +26,12 @@ import android.database.Cursor;
 
 import net.micode.notes.data.Notes;
 import net.micode.notes.data.Notes.NoteColumns;
+import net.micode.notes.tool.PendingIntentCompat;
 
 
+/**
+ * 类：开机后为尚未过期的提醒重新注册 AlarmManager。
+ */
 public class AlarmInitReceiver extends BroadcastReceiver {
 
     private static final String [] PROJECTION = new String [] {
@@ -53,7 +57,8 @@ public class AlarmInitReceiver extends BroadcastReceiver {
                     long alertDate = c.getLong(COLUMN_ALERTED_DATE);
                     Intent sender = new Intent(context, AlarmReceiver.class);
                     sender.setData(ContentUris.withAppendedId(Notes.CONTENT_NOTE_URI, c.getLong(COLUMN_ID)));
-                    PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, sender, 0);
+                    PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, sender,
+                            PendingIntentCompat.immutable());
                     AlarmManager alermManager = (AlarmManager) context
                             .getSystemService(Context.ALARM_SERVICE);
                     alermManager.set(AlarmManager.RTC_WAKEUP, alertDate, pendingIntent);

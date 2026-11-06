@@ -36,6 +36,9 @@ import java.io.IOException;
 import java.io.PrintStream;
 
 
+/**
+ * 类：把未在回收站中的便签导出成 SD 卡上的文本文件。
+ */
 public class BackupUtils {
     private static final String TAG = "BackupUtils";
     // Singleton stuff

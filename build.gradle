@@ -1,0 +1,57 @@
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:8.5.2"
+    }
+}
+
+apply plugin: "com.android.application"
+
+android {
+    namespace "net.micode.notes"
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "net.micode.notes"
+        minSdk 21
+        targetSdk 34
+        versionCode 1
+        versionName "0.1"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    lint {
+        abortOnError false
+        checkReleaseBuilds false
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+
+    sourceSets {
+        main {
+            manifest.srcFile "AndroidManifest.xml"
+            java.srcDirs = ["src"]
+            res.srcDirs = ["res"]
+        }
+    }
+
+    // 社区版 GTaskClient 使用 org.apache.http.*。API 23 之后不再位于 android.jar，
+    // 使用 SDK 自带的 legacy 库打进 APK。不同步时这些类不会被调用。
+    useLibrary "org.apache.http.legacy"
+}
+
+repositories {
+    google()
+    mavenCentral()
+}

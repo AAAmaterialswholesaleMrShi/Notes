@@ -16,6 +16,9 @@
 
 package net.micode.notes.gtask.exception;
 
+/**
+ * 类：同步过程中网络或登录失败时抛出的受检异常。
+ */
 public class NetworkFailureException extends Exception {
     private static final long serialVersionUID = 2107610287180234136L;
 

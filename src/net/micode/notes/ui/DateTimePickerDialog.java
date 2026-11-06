@@ -29,6 +29,9 @@ import android.content.DialogInterface.OnClickListener;
 import android.text.format.DateFormat;
 import android.text.format.DateUtils;
 
+/**
+ * 类：包裹 DateTimePicker 的对话框，确认后把毫秒时间回传给编辑界面。
+ */
 public class DateTimePickerDialog extends AlertDialog implements OnClickListener {
 
     private Calendar mDate = Calendar.getInstance();

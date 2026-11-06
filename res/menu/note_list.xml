@@ -34,6 +34,10 @@
         android:title="@string/menu_setting" />
 
     <item
+        android:id="@+id/menu_trash"
+        android:title="@string/menu_trash"/>
+
+    <item
         android:id="@+id/menu_search"
         android:title="@string/menu_search"/>
 </menu>

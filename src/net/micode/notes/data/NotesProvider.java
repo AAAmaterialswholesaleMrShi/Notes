@@ -35,6 +35,9 @@ import net.micode.notes.data.Notes.NoteColumns;
 import net.micode.notes.data.NotesDatabaseHelper.TABLE;
 
 
+/**
+ * 类：把 note 与 data 两张表暴露成 content://micode_notes，并提供按 snippet 搜索的查询。
+ */
 public class NotesProvider extends ContentProvider {
     private static final UriMatcher mMatcher;
 

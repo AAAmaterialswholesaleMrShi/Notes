@@ -26,6 +26,9 @@ import net.micode.notes.data.Notes.NoteColumns;
 import net.micode.notes.tool.DataUtils;
 
 
+/**
+ * 类：列表中一行的数据对象，从查询游标读取 id、摘要、颜色、父文件夹和小部件信息。
+ */
 public class NoteItemData {
     static final String [] PROJECTION = new String [] {
         NoteColumns.ID,

@@ -37,6 +37,9 @@ import net.micode.notes.R;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * 类：编辑框。清单模式下处理回车拆行、退格合并，并识别电话、邮箱和网址。
+ */
 public class NoteEditText extends EditText {
     private static final String TAG = "NoteEditText";
     private int mIndex;

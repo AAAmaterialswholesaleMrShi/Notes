@@ -24,6 +24,9 @@ import net.micode.notes.data.Notes;
 import net.micode.notes.tool.ResourceParser;
 
 
+/**
+ * 类：2×2 桌面小部件，只提供布局和背景资源。
+ */
 public class NoteWidgetProvider_2x extends NoteWidgetProvider {
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {

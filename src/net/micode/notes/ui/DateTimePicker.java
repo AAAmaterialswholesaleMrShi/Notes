@@ -28,6 +28,9 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.NumberPicker;
 
+/**
+ * 类：年、月、日、时、分的选择控件，供提醒对话框使用。
+ */
 public class DateTimePicker extends FrameLayout {
 
     private static final boolean DEFAULT_ENABLE_STATE = true;

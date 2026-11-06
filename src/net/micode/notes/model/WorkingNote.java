@@ -32,6 +32,9 @@ import net.micode.notes.data.Notes.TextNote;
 import net.micode.notes.tool.ResourceParser.NoteBgResources;
 
 
+/**
+ * 类：编辑中的便签。空内容不会插入数据库；提醒、背景、清单模式都先记在这里。
+ */
 public class WorkingNote {
     // Note for the working note
     private Note mNote;

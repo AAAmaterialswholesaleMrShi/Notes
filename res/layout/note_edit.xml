@@ -63,6 +63,15 @@
                 android:background="@drawable/bg_btn_set_color" />
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/tv_note_metrics"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="8dip"
+            android:paddingRight="48dip"
+            android:paddingBottom="2dip"
+            android:textAppearance="@style/TextAppearanceSecondaryItem" />
+
         <LinearLayout
             android:id="@+id/sv_note_edit"
             android:layout_width="fill_parent"

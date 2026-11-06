@@ -27,6 +27,9 @@ import android.widget.PopupMenu.OnMenuItemClickListener;
 
 import net.micode.notes.R;
 
+/**
+ * 类：多选动作条上的下拉菜单，用来全选或取消全选。
+ */
 public class DropdownMenu {
     private Button mButton;
     private PopupMenu mPopupMenu;

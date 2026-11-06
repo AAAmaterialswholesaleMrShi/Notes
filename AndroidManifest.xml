@@ -20,7 +20,15 @@
     android:versionCode="1"
     android:versionName="0.1" >
 
-    <uses-sdk android:minSdkVersion="14" />
+    <!--
+        社区版原来只写 minSdkVersion="14"，没有 targetSdkVersion。
+        本次为了在当前命令行 SDK（compileSdk 34）上编过并安装到 Android 12 及以上模拟器，
+        将 minSdk 提到 21、targetSdk 设为 34。带 intent-filter 的组件补上 android:exported。
+        这是运行兼容改动，不是两项产品功能本身。
+    -->
+    <uses-sdk
+        android:minSdkVersion="21"
+        android:targetSdkVersion="34" />
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
@@ -37,6 +45,7 @@
         android:label="@string/app_name" >
         <activity
             android:name=".ui.NotesListActivity"
+            android:exported="true"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/app_name"
             android:launchMode="singleTop"
@@ -52,6 +61,7 @@
 
         <activity
             android:name=".ui.NoteEditActivity"
+            android:exported="true"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:launchMode="singleTop"
             android:theme="@style/NoteTheme" >
@@ -83,10 +93,12 @@
         <provider
             android:name="net.micode.notes.data.NotesProvider"
             android:authorities="micode_notes"
+            android:exported="false"
             android:multiprocess="true" />
 
         <receiver
             android:name=".widget.NoteWidgetProvider_2x"
+            android:exported="true"
             android:label="@string/app_widget2x2" >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -100,6 +112,7 @@
         </receiver>
         <receiver
             android:name=".widget.NoteWidgetProvider_4x"
+            android:exported="true"
             android:label="@string/app_widget4x4" >
 
             <intent-filter>
@@ -113,7 +126,9 @@
                 android:resource="@xml/widget_4x_info" />
         </receiver>
 
-        <receiver android:name=".ui.AlarmInitReceiver" >
+        <receiver
+            android:name=".ui.AlarmInitReceiver"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
@@ -121,11 +136,13 @@
 
         <receiver
             android:name="net.micode.notes.ui.AlarmReceiver"
+            android:exported="false"
             android:process=":remote" >
         </receiver>
 
         <activity
             android:name=".ui.AlarmAlertActivity"
+            android:exported="false"
             android:label="@string/app_name"
             android:launchMode="singleInstance"
             android:theme="@android:style/Theme.Holo.Wallpaper.NoTitleBar" >
@@ -133,6 +150,7 @@
 
         <activity
             android:name="net.micode.notes.ui.NotesPreferenceActivity"
+            android:exported="false"
             android:label="@string/preferences_title"
             android:launchMode="singleTop"
             android:theme="@android:style/Theme.Holo.Light" >

@@ -29,6 +29,9 @@ import net.micode.notes.data.Notes;
 import net.micode.notes.data.Notes.NoteColumns;
 
 
+/**
+ * 类：“移动到文件夹”对话框里的文件夹游标适配器。
+ */
 public class FoldersListAdapter extends CursorAdapter {
     public static final String [] PROJECTION = {
         NoteColumns.ID,

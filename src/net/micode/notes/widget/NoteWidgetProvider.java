@@ -28,10 +28,14 @@ import android.widget.RemoteViews;
 import net.micode.notes.R;
 import net.micode.notes.data.Notes;
 import net.micode.notes.data.Notes.NoteColumns;
+import net.micode.notes.tool.PendingIntentCompat;
 import net.micode.notes.tool.ResourceParser;
 import net.micode.notes.ui.NoteEditActivity;
 import net.micode.notes.ui.NotesListActivity;
 
+/**
+ * 类：桌面小部件基类。按 widget id 读出便签摘要；便签在回收站时按原查询条件不会显示正文。
+ */
 public abstract class NoteWidgetProvider extends AppWidgetProvider {
     public static final String [] PROJECTION = new String [] {
         NoteColumns.ID,
@@ -111,11 +115,12 @@ public abstract class NoteWidgetProvider extends AppWidgetProvider {
                     rv.setTextViewText(R.id.widget_text,
                             context.getString(R.string.widget_under_visit_mode));
                     pendingIntent = PendingIntent.getActivity(context, appWidgetIds[i], new Intent(
-                            context, NotesListActivity.class), PendingIntent.FLAG_UPDATE_CURRENT);
+                            context, NotesListActivity.class),
+                            PendingIntent.FLAG_UPDATE_CURRENT | PendingIntentCompat.immutable());
                 } else {
                     rv.setTextViewText(R.id.widget_text, snippet);
                     pendingIntent = PendingIntent.getActivity(context, appWidgetIds[i], intent,
-                            PendingIntent.FLAG_UPDATE_CURRENT);
+                            PendingIntent.FLAG_UPDATE_CURRENT | PendingIntentCompat.immutable());
                 }
 
                 rv.setOnClickPendingIntent(R.id.widget_text, pendingIntent);
