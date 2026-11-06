@@ -1,0 +1,19 @@
+date 2026-11-06T08:30:39+00:00
+uname Linux cursor 6.12.113+ #1 SMP PREEMPT_DYNAMIC Thu Nov  5 16:04:51 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux
+cpu model name	: Intel(R) Xeon(R) Processor
+nproc 4
+openjdk version "21.0.12.1" 2026-08-18
+OpenJDK Runtime Environment (build 21.0.12.1+1-1-24.04.4-Ubuntu)
+OpenJDK 64-Bit Server VM (build 21.0.12.1+1-1-24.04.4-Ubuntu, mixed mode, sharing)
+git 81a6602 branch cursor/course-practice-notes-ca85
+base-parent 81a6602
+sdk /home/ubuntu/android-sdk
+Installed packages:
+  Path                                     | Version | Description                             | Location                                
+  -------                                  | ------- | -------                                 | -------                                 
+  build-tools;34.0.0                       | 34.0.0  | Android SDK Build-Tools 34              | build-tools/34.0.0                      
+  emulator                                 | 37.2.13 | Android Emulator                        | emulator                                
+  platform-tools                           | 37.0.1  | Android SDK Platform-Tools              | platform-tools                          
+  platforms;android-34                     | 3       | Android SDK Platform 34                 | platforms/android-34                    
+  system-images;android-34;aosp_atd;x86_64 | 2       | AOSP ATD Intel x86_64 Atom System Image | system-images/android-34/aosp_atd/x86_64
+

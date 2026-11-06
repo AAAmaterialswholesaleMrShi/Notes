@@ -1,0 +1,16 @@
+SIZE Physical size: 1080x1920
+DENSITY Physical density: 420
+Starting: Intent { cmp=net.micode.notes/.ui.NotesListActivity }
+=== run-as db ===
+total 32
+-rw-rw---- 1 u0_a108 u0_a108 24576 2026-11-06 08:33 note.db
+-rw-rw---- 1 u0_a108 u0_a108     0 2026-11-06 08:33 note.db-journal
+TABLES [('android_metadata',), ('note',), ('increase_folder_count_on_update',), ('decrease_folder_count_on_update',), ('decrease_folder_count_on_delete',), ('delete_data_on_delete',), ('increase_folder_count_on_insert',), ('folder_delete_notes_on_delete',), ('folder_move_notes_on_trash',), ('data',), ('update_note_content_on_insert',), ('update_note_content_on_update',), ('update_note_content_on_delete',), ('note_id_index',)]
+NOTES [(-3, 0, 0, 2, ''), (-2, 0, 0, 2, ''), (-1, 0, 0, 2, ''), (0, 0, 0, 2, ''), (1, 0, 0, 0, 'Welcome to use MIUI notes!')]
+VER (5,)
+=== open edit by intent ===
+Starting: Intent { act=android.intent.action.VIEW cmp=net.micode.notes/.ui.NoteEditActivity (has extras) }
+/sdcard/ui.xml: 1 file pulled, 0 skipped. 6.1 MB/s (5619 bytes in 0.001s)
+['11/6/2026, 8:33\u202fAM', '26 chars · 1 lines', 'Welcome to use MIUI notes!']
+focus-check done
+  mCurrentFocus=Window{41a564e u0 net.micode.notes/net.micode.notes.ui.NoteEditActivity}

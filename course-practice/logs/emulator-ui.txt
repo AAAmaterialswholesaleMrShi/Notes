@@ -1,0 +1,10 @@
+START 2026-11-06T08:33:18+00:00
+Performing Streamed Install
+Success
+INSTALL_EXIT:0
+Failed to set property 'persist.sys.locale' to 'zh-CN'.
+See dmesg for error reason.
+Starting: Intent { cmp=net.micode.notes/.ui.NotesListActivity }
+UI hierchary dumped to: /sdcard/ui-launch.xml
+/sdcard/ui-launch.xml: 1 file pulled, 0 skipped. 2.3 MB/s (4892 bytes in 0.002s)
+LAUNCH_DUMP_OK

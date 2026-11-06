@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="640" viewBox="0 0 1000 640">
+  <rect width="100%" height="100%" fill="#f7f4ee"/>
+  <text x="32" y="36" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="20" fill="#1d2a24">图7  新增与原有界面原型</text>
+  <rect x="40" y="40" width="280" height="520" rx="28" fill="#1d2a24"/>
+<rect x="52" y="52" width="256" height="496" rx="18" fill="#f3ecdf"/>
+<text x="180" y="88" text-anchor="middle" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="16" fill="#1d2a24">便签</text>
+<rect x="68" y="110" width="224" height="64" rx="6" fill="#fffdf8" stroke="#d7c7a4"/>
+<text x="80" y="138" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="14" fill="#1d2a24">欢迎使用 MiCode 便签</text>
+<rect x="68" y="184" width="224" height="64" rx="6" fill="#fffdf8" stroke="#d7c7a4"/>
+<text x="80" y="212" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="14" fill="#1d2a24">买菜：牛奶、面包</text>
+<rect x="68" y="258" width="224" height="64" rx="6" fill="#fffdf8" stroke="#d7c7a4"/>
+<text x="80" y="286" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="14" fill="#1d2a24">文件夹  课程</text>
+<rect x="68" y="490" width="224" height="40" rx="20" fill="#1f4d3a"/>
+<text x="180" y="515" text-anchor="middle" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="14" fill="#f7f4ee">新建便签</text>
+<text x="180" y="588" text-anchor="middle" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="12" fill="#6d5b3d">界面原型，不是模拟器截图</text><rect x="360" y="40" width="280" height="520" rx="28" fill="#1d2a24"/>
+<rect x="372" y="52" width="256" height="496" rx="18" fill="#f3ecdf"/>
+<text x="500" y="88" text-anchor="middle" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="16" fill="#1d2a24">编辑</text>
+<text x="388" y="110" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="13" fill="#6d5b3d">2026-11-06  08:30</text>
+<text x="388" y="134" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="13" fill="#6d5b3d">12 字 · 2 行</text>
+<text x="388" y="158" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="15" fill="#1d2a24">买菜</text>
+<text x="388" y="184" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="15" fill="#1d2a24">牛奶、面包</text>
+<text x="500" y="588" text-anchor="middle" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="12" fill="#6d5b3d">界面原型，不是模拟器截图</text><rect x="680" y="40" width="280" height="520" rx="28" fill="#1d2a24"/>
+<rect x="692" y="52" width="256" height="496" rx="18" fill="#f3ecdf"/>
+<text x="820" y="88" text-anchor="middle" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="16" fill="#1d2a24">回收站</text>
+<rect x="708" y="110" width="224" height="28" rx="4" fill="#ead8b8"/>
+<text x="720" y="129" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="13" fill="#1d2a24">回收站</text>
+<rect x="708" y="148" width="224" height="64" rx="6" fill="#fffdf8" stroke="#d7c7a4"/>
+<text x="720" y="176" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="14" fill="#1d2a24">已删除的便签</text>
+<rect x="708" y="490" width="224" height="40" rx="20" fill="#1f4d3a"/>
+<text x="820" y="515" text-anchor="middle" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="14" fill="#f7f4ee">菜单：清空回收站</text>
+<text x="820" y="588" text-anchor="middle" font-family="WenQuanYi Micro Hei, Droid Sans Fallback, sans-serif" font-size="12" fill="#6d5b3d">界面原型，不是模拟器截图</text>
+</svg>

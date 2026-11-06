@@ -1,0 +1,2 @@
+java_files,packages,types_named_including_inner,types_top_level,classes,interfaces,enums,methods_in_named_types,methods_in_anonymous_classes,constructors,java_wc_newlines,java_logical_lines,java_blank_lines,java_comment_lines,java_code_lines,resource_files,resource_text_files,resource_binary_files,resource_wc_newlines_text_only,resource_logical_lines_text,parser
+39,8,65,39,56,8,1,433,34,38,10001,10002,1401,1206,7395,104,39,65,1902,1922,javalang 0.13.0

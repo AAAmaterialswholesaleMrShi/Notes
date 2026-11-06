@@ -1,0 +1,67 @@
+Downloading https://services.gradle.org/distributions/gradle-8.9-bin.zip
+............10%.............20%.............30%.............40%.............50%.............60%.............70%.............80%.............90%.............100%
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.9/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :preBuild UP-TO-DATE
+> Task :preDebugBuild UP-TO-DATE
+> Task :mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :generateDebugResValues
+> Task :checkDebugAarMetadata
+> Task :javaPreCompileDebug
+> Task :mapDebugSourceSetPaths
+> Task :generateDebugResources
+> Task :createDebugCompatibleScreenManifests
+> Task :extractDeepLinksDebug
+
+> Task :processDebugMainManifest
+package="net.micode.notes" found in source AndroidManifest.xml: /workspace/AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="net.micode.notes" from the source AndroidManifest.xml: /workspace/AndroidManifest.xml.
+
+> Task :mergeDebugResources
+> Task :processDebugManifest
+> Task :mergeDebugShaders
+> Task :compileDebugShaders NO-SOURCE
+> Task :generateDebugAssets UP-TO-DATE
+> Task :mergeDebugAssets
+> Task :compressDebugAssets
+> Task :processDebugJavaRes NO-SOURCE
+> Task :checkDebugDuplicateClasses
+> Task :mergeDebugJavaResource
+> Task :desugarDebugFileDependencies
+> Task :processDebugManifestForPackage
+> Task :mergeDebugStartupProfile
+> Task :mergeExtDexDebug
+> Task :mergeDebugJniLibFolders
+> Task :mergeLibDexDebug
+> Task :mergeDebugNativeLibs NO-SOURCE
+> Task :stripDebugDebugSymbols NO-SOURCE
+> Task :processDebugResources
+> Task :validateSigningDebug
+
+> Task :compileDebugJavaWithJavac
+Java compiler version 21 has deprecated support for compiling with source/target version 8.
+Try one of the following options:
+    1. [Recommended] Use Java toolchain with a lower language version
+    2. Set a higher source/target version
+    3. Use a lower version of the JDK running the build (if you're not using Java toolchain)
+For more details on how to configure these settings, see https://developer.android.com/build/jdks.
+To suppress this warning, set android.javaCompile.suppressSourceTargetDeprecationWarning=true in gradle.properties.
+warning: [options] source value 8 is obsolete and will be removed in a future release
+warning: [options] target value 8 is obsolete and will be removed in a future release
+warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+3 warnings
+
+> Task :dexBuilderDebug
+> Task :writeDebugAppMetadata
+> Task :writeDebugSigningConfigVersions
+> Task :mergeProjectDexDebug
+> Task :packageDebug
+> Task :createDebugApkListingFileRedirect
+> Task :assembleDebug
+
+BUILD SUCCESSFUL in 10s
+30 actionable tasks: 30 executed
+EXIT:0
