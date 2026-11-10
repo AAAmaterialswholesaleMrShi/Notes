@@ -26,6 +26,17 @@
         android:layout_height="fill_parent"
         android:orientation="vertical">
 
+        <ImageButton
+            android:id="@+id/btn_options_menu"
+            android:layout_width="@dimen/options_overflow_size"
+            android:layout_height="@dimen/options_overflow_size"
+            android:layout_gravity="end"
+            android:padding="12dp"
+            android:scaleType="centerInside"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_overflow"
+            android:contentDescription="@string/menu_overflow" />
+
         <LinearLayout
             android:id="@+id/note_title"
             android:layout_width="fill_parent"
@@ -129,6 +140,7 @@
         android:id="@+id/btn_set_bg_color"
         android:layout_height="43dip"
         android:layout_width="wrap_content"
+        android:layout_marginTop="@dimen/options_overflow_size"
         android:background="@drawable/bg_color_btn_mask"
         android:layout_gravity="top|right" />
 
@@ -137,7 +149,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/note_edit_color_selector_panel"
-        android:layout_marginTop="30dip"
+        android:layout_marginTop="@dimen/note_color_selector_margin_top"
         android:layout_marginRight="8dip"
         android:layout_gravity="top|right"
         android:visibility="gone">

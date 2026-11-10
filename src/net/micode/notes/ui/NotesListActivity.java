@@ -39,6 +39,7 @@ import android.view.ActionMode;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.Display;
+import android.view.Gravity;
 import android.view.HapticFeedbackConstants;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -226,6 +227,7 @@ public class NotesListActivity extends Activity implements OnClickListener, OnIt
         mNotesListView.setAdapter(mNotesListAdapter);
         mAddNewNote = (Button) findViewById(R.id.btn_new_note);
         mAddNewNote.setOnClickListener(this);
+        findViewById(R.id.btn_options_menu).setOnClickListener(this);
         mAddNewNote.setOnTouchListener(new NewNoteOnTouchListener());
         mDispatch = false;
         mDispatchY = 0;
@@ -589,9 +591,27 @@ public class NotesListActivity extends Activity implements OnClickListener, OnIt
             case R.id.btn_new_note:
                 createNewNote();
                 break;
+            case R.id.btn_options_menu:
+                openOptionsOverflow(v);
+                break;
             default:
                 break;
         }
+    }
+
+    /**
+     * 系统 ActionBar 被 NoteTheme 藏掉了，窄屏上的分栏又会把溢出按钮放到底部。
+     * 右上角按钮按当前列表状态弹出原来的选项菜单（根目录含回收站，回收站里是清空）。
+     */
+    private void openOptionsOverflow(View anchor) {
+        PopupMenu popup = new PopupMenu(this, anchor, Gravity.END);
+        onPrepareOptionsMenu(popup.getMenu());
+        popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            public boolean onMenuItemClick(MenuItem item) {
+                return onOptionsItemSelected(item);
+            }
+        });
+        popup.show();
     }
 
     private void showSoftInput() {

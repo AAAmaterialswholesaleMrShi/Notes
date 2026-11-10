@@ -38,6 +38,7 @@ import android.text.TextWatcher;
 import android.text.format.DateUtils;
 import android.text.style.BackgroundColorSpan;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -51,6 +52,7 @@ import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -382,6 +384,7 @@ public class NoteEditActivity extends Activity implements OnClickListener,
         mNoteHeaderHolder.tvAlertDate = (TextView) findViewById(R.id.tv_alert_date);
         mNoteHeaderHolder.ibSetBgColor = (ImageView) findViewById(R.id.btn_set_bg_color);
         mNoteHeaderHolder.ibSetBgColor.setOnClickListener(this);
+        findViewById(R.id.btn_options_menu).setOnClickListener(this);
         mNoteEditor = (EditText) findViewById(R.id.note_edit_view);
         mNoteEditorPanel = findViewById(R.id.sv_note_edit);
         mNoteBgColorSelector = findViewById(R.id.note_bg_color_selector);
@@ -450,6 +453,10 @@ public class NoteEditActivity extends Activity implements OnClickListener,
 
     public void onClick(View v) {
         int id = v.getId();
+        if (id == R.id.btn_options_menu) {
+            openOptionsOverflow(v);
+            return;
+        }
         if (id == R.id.btn_set_bg_color) {
             mNoteBgColorSelector.setVisibility(View.VISIBLE);
             findViewById(sBgSelectorSelectionMap.get(mWorkingNote.getBgColorId())).setVisibility(
@@ -501,6 +508,23 @@ public class NoteEditActivity extends Activity implements OnClickListener,
                 View.VISIBLE);
         mNoteEditorPanel.setBackgroundResource(mWorkingNote.getBgColorResId());
         mHeadViewPanel.setBackgroundResource(mWorkingNote.getTitleBgResId());
+    }
+
+    /**
+     * 编辑页同样没有可见的 ActionBar。右上角按钮弹出原来的编辑菜单。
+     */
+    private void openOptionsOverflow(View anchor) {
+        if (mWorkingNote == null) {
+            return;
+        }
+        PopupMenu popup = new PopupMenu(this, anchor, Gravity.END);
+        onPrepareOptionsMenu(popup.getMenu());
+        popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            public boolean onMenuItemClick(MenuItem item) {
+                return onOptionsItemSelected(item);
+            }
+        });
+        popup.show();
     }
 
     @Override
