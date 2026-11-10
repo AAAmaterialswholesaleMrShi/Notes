@@ -62,6 +62,14 @@
         <item name="android:actionBarStyle">@style/NoteActionBarStyle</item>
     </style>
 
+    <!--
+        displayOptions 为空且 visibility=gone，装饰视图里的 ActionBarView 整条被藏掉。
+        没有实体 Menu 键时，选项菜单就没有任何入口。
+        这里继续藏着系统栏：列表用的是深色纸张背景，亮色 Holo 标题栏会盖住它；
+        NotesListActivity 的 splitActionBarWhenNarrow 还会把溢出按钮放到屏幕底部，
+        挤开“写便签”，并和多选时的底部分栏抢同一块位置。
+        三个点改在 note_list / note_edit 布局右上角，菜单内容仍走原来的 onPrepareOptionsMenu。
+    -->
     <style name="NoteActionBarStyle" parent="@android:style/Widget.Holo.Light.ActionBar.Solid">
         <item name="android:displayOptions" />
         <item name="android:visibility">gone</item>

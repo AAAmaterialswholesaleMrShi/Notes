@@ -21,4 +21,7 @@
     <dimen name="text_font_size_medium">20sp</dimen>
     <dimen name="text_font_size_normal">17sp</dimen>
     <dimen name="text_font_size_small">14sp</dimen>
+    <!-- 右上角溢出按钮边长。编辑页颜色面板原来距顶 30dp，下移同样的高度。 -->
+    <dimen name="options_overflow_size">48dp</dimen>
+    <dimen name="note_color_selector_margin_top">78dp</dimen>
 </resources>
